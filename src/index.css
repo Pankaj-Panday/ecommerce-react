@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+:root {
+	--fw-normal: 400;
+	--fw-medium: 500;
+	--fw-semi-bold: 600;
+	--fw-bold: 700;
+}
+
 *,
 *::before,
 *::after {
@@ -25,4 +32,10 @@ ul li {
 
 a {
 	text-decoration: none;
+}
+
+.mainContainer {
+	width: 86%;
+	max-width: 1240px;
+	margin: 0 auto;
 }

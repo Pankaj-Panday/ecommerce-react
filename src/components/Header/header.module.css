@@ -1,0 +1,52 @@
+.header {
+	--header-height: 100px;
+	position: sticky;
+	top: 0;
+}
+
+.navContainer {
+	width: calc(86% + 86px);
+	height: var(--header-height);
+	margin: 0 auto;
+	max-width: 1326px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbarPrimary {
+	width: 32%;
+}
+
+.navListPrimary {
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbarSecondary {
+	width: 19%;
+}
+
+.navListSecondary {
+	display: flex;
+	justify-content: space-between;
+}
+
+.navlink a {
+	text-transform: capitalize;
+	font-weight: var(--fw-medium);
+	color: #000;
+}
+
+.navlink a:active {
+	color: #535353;
+}
+
+a.activeLink {
+	color: #b98f32;
+}
+
+.icon {
+	height: 1.25rem;
+	width: 1.25rem;
+}

@@ -4,7 +4,6 @@ import {
 	RouterProvider,
 	createRoutesFromElements,
 	Route,
-	Outlet,
 } from "react-router-dom";
 
 // Pages
@@ -17,7 +16,9 @@ import About from "./pages/About/About.jsx";
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route errorElement={<ErrorPage />}>
-			<Route path="/" element={<Home />} />
+			<Route path="/" element={<Home />}>
+				<Route path="home" element={<Home />} />
+			</Route>
 			<Route path="/shop" element={<Shop />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/contact" element={<Contact />} />
