@@ -1,12 +1,9 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import { Outlet } from "react-router-dom";
+import MainLayout from "../../layout/MainLayout.jsx";
 
 const Home = () => {
-	return (
-		<div>
-			<Header />
-		</div>
-	);
+	return <div>Home</div>;
 };
 
 export default Home;

@@ -1,0 +1,28 @@
+.cartContainer {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.cartIcon {
+	height: 100%;
+	width: 100%;
+}
+
+.cartItems {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background-color: #b98f32;
+	color: #ffffff;
+	position: absolute;
+	top: -65%;
+	left: 50%;
+	font-size: 0.7rem;
+	display: inline-block;
+	text-align: center;
+	padding: 2px 2px;
+	display: grid;
+	place-items: center;
+	z-index: -1;
+}

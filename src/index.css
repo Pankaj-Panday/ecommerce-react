@@ -5,6 +5,9 @@
 	--fw-medium: 500;
 	--fw-semi-bold: 600;
 	--fw-bold: 700;
+
+	/* Colors */
+	--clr-brand-primary: #b98f32;
 }
 
 *,
@@ -35,7 +38,13 @@ a {
 }
 
 .mainContainer {
-	width: 86%;
+	width: 82%;
 	max-width: 1240px;
 	margin: 0 auto;
+}
+
+@media screen and (max-width: 1048px) {
+	.mainContainer {
+		width: 92%;
+	}
 }

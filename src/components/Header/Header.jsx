@@ -1,25 +1,25 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import css from "./header.module.css";
-import Logo from "../Logo/Logo";
+import Logo from "../Logo/Logo.jsx";
+import Cart from "../Cart/Cart.jsx";
 
 // Icons import
 import { FaUser } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
-import { FaCartShopping } from "react-icons/fa6";
 
 const Header = () => {
 	return (
 		<header className={css.header}>
 			<div className={css.navContainer}>
-				<Logo small />
+				<Logo />
 				<nav className={css.navbarPrimary} aria-label="primary">
 					<ul className={css.navListPrimary}>
 						<li className={css.navlink}>
 							<NavLink
 								to="/home"
-								className={({ isActive, isPending }) => {
+								className={({ isActive }) => {
 									return isActive ? css.activeLink : "";
 								}}
 							>
@@ -27,13 +27,34 @@ const Header = () => {
 							</NavLink>
 						</li>
 						<li className={css.navlink}>
-							<NavLink to="/shop">shop</NavLink>
+							<NavLink
+								to="/shop"
+								className={({ isActive }) => {
+									return isActive ? css.activeLink : "";
+								}}
+							>
+								shop
+							</NavLink>
 						</li>
 						<li className={css.navlink}>
-							<NavLink to="/about">about</NavLink>
+							<NavLink
+								to="/about"
+								className={({ isActive }) => {
+									return isActive ? css.activeLink : "";
+								}}
+							>
+								about
+							</NavLink>
 						</li>
 						<li className={css.navlink}>
-							<NavLink to="/contact">contact</NavLink>
+							<NavLink
+								to="/contact"
+								className={({ isActive }) => {
+									return isActive ? css.activeLink : "";
+								}}
+							>
+								contact
+							</NavLink>
 						</li>
 					</ul>
 				</nav>
@@ -56,7 +77,7 @@ const Header = () => {
 						</li>
 						<li className={css.navlink}>
 							<Link to="#">
-								<FaCartShopping className={css.icon} />
+								<Cart items={9} />
 							</Link>
 						</li>
 					</ul>
