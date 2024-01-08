@@ -60,10 +60,15 @@
 	border: none;
 	border-bottom: 1px solid var(--clr-dark);
 	cursor: pointer;
+	transition: all 0.2s ease-out;
+}
+
+.formBtn:hover {
+	color: var(--clr-brand-primary);
 }
 
 .formBtn:active {
-	padding-bottom: 8px;
+	padding-bottom: 7px;
 }
 
 .horizontalRow {
