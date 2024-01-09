@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
+	--header-height: 100px;
+
+	/* Font weight */
 	--fw-normal: 400;
 	--fw-medium: 500;
 	--fw-semi-bold: 600;
@@ -8,6 +11,7 @@
 
 	/* Colors */
 	--clr-brand-primary: #b98f32;
+	--clr-brand-primary-active: #9e792a;
 }
 
 *,
@@ -27,6 +31,10 @@ body,
 
 body {
 	font-family: "Poppins", sans-serif;
+}
+
+#root {
+	overflow: auto;
 }
 
 ul li {
