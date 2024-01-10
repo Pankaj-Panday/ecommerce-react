@@ -3,14 +3,18 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import css from "./home.module.css";
 import { categoryData } from "../../homeData";
 
+// Icons
+import { IoIosArrowRoundForward } from "react-icons/io";
+
 export async function loader() {
 	// using loader just to understand its implementation, otherwise we can directly use categoryData
-	return "hello";
+	const categories = categoryData;
+	return categories;
 }
 
 const Home = () => {
-	const category = useLoaderData();
-	console.log(category);
+	const categories = useLoaderData();
+	console.log(categories);
 	return (
 		<main>
 			<section className={css.heroSection}>
@@ -34,8 +38,54 @@ const Home = () => {
 				<div className="mainContainer">
 					<h2>Browse The Range</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<div className={css.categoriesContainer}>
+						{categories.map((category, index) => {
+							return (
+								<div key={index + 1}>
+									<div className={css.categoryImg}>
+										<NavLink to="/shop">
+											<img src={category.img} alt={`category ${index + 1}`} />
+										</NavLink>
+									</div>
+									<h3>
+										<NavLink to="/shop">{category.name}</NavLink>
+									</h3>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</section>
+			<section className={css.productSection}>
+				<div className="mainContainer">
+					<h2>Our Products</h2>
+					<div className={css.products}></div>
+					<NavLink className={css.showMoreBtn}>Show more</NavLink>
+				</div>
+			</section>
+			<section className={css.exploreSection}>
+				<div>
 					<div>
-						<div></div>
+						<div>
+							<h2>50+ Beautiful rooms inspiration</h2>
+							<p>
+								Our designer already made a lot of beautiful prototipe of rooms
+								that inspire you
+							</p>
+							<NavLink>Explore More</NavLink>
+						</div>
+						<div>
+							<div>
+								<p>01 - Bedroom</p>
+								<h3>Inner Peace </h3>
+							</div>
+							<span>
+								<IoIosArrowRoundForward />
+							</span>
+						</div>
+					</div>
+					<div className="slider">
+						<img src="" alt="" />
 					</div>
 				</div>
 			</section>

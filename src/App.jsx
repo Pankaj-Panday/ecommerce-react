@@ -18,14 +18,8 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<MainLayout />} errorElement={<ErrorPage />}>
 			<Route errorElement={<ErrorPage />}>
-				<Route
-					index
-					element={<Home />}
-					loader={() => {
-						return { name: "Pankaj" };
-					}}
-				/>
-				<Route path="home" element={<Home />} />
+				<Route index element={<Home />} loader={homeLoader} />
+				<Route path="home" element={<Home />} loader={homeLoader} />
 				<Route path="shop" element={<Shop />} />
 				<Route path="about" element={<About />} />
 				<Route path="contact" element={<Contact />} />
