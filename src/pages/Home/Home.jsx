@@ -60,7 +60,9 @@ const Home = () => {
 				<div className="mainContainer">
 					<h2>Our Products</h2>
 					<div className={css.products}></div>
-					<NavLink className={css.showMoreBtn}>Show more</NavLink>
+					<NavLink to="/shop" className={css.showMoreBtn}>
+						Show more
+					</NavLink>
 				</div>
 			</section>
 			<section className={css.exploreSection}>
