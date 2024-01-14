@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import css from "./home.module.css";
-import { categoryData } from "../../homeData";
+import { categoryData, slides } from "../../homeData";
+import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -14,7 +15,6 @@ export async function loader() {
 
 const Home = () => {
 	const categories = useLoaderData();
-	console.log(categories);
 	return (
 		<main>
 			<section className={css.heroSection}>
@@ -85,9 +85,9 @@ const Home = () => {
 								<IoIosArrowRoundForward />
 							</span>
 						</div>
-					</div>
-					<div className="slider">
-						<img src="" alt="" />
+						<div className={css.sliderContainer}>
+							<ImageSlider slides={slides} />
+						</div>
 					</div>
 				</div>
 			</section>

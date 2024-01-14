@@ -1,6 +1,11 @@
-.footer {
+.footerContainer {
 	--clr-light: #9f9f9f;
 	--clr-dark: #000000;
+	border-top: 1px solid rgba(0, 0, 0, 0.17);
+	margin-top: 3.125rem;
+}
+
+.footer {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 3.125rem;
