@@ -44,6 +44,7 @@
 	width: 100%;
 	height: var(--dots-height);
 	margin-top: var(--dots-mt);
+	margin-left: 8px;
 	display: flex;
 	gap: 20px;
 	align-items: center;
@@ -54,10 +55,21 @@
 	border-radius: 50%;
 	width: 11px;
 	height: 11px;
+	cursor: pointer;
 }
 
 .dot.active {
 	background-color: var(--clr-brand-primary);
 	outline: 1px solid var(--clr-brand-primary);
 	outline-offset: 8px;
+}
+
+@media screen and (max-width: 694px) {
+	.wrapper {
+		--dots-height: 23px;
+		--dots-mt: 20px;
+	}
+	.dot.active {
+		outline-offset: 4px;
+	}
 }

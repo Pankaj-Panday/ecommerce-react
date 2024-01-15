@@ -66,29 +66,36 @@ const Home = () => {
 				</div>
 			</section>
 			<section className={css.exploreSection}>
-				<div>
-					<div>
+				<div className={css.exploreContainer}>
+					<div className={css.first}>
+						<h2>50+ Beautiful rooms inspiration</h2>
+						<p>
+							Our designer already made a lot of beautiful prototipe of rooms
+							that inspire you
+						</p>
+						<NavLink to="/shop">Explore More</NavLink>
+					</div>
+					<div className={css.second}>
 						<div>
-							<h2>50+ Beautiful rooms inspiration</h2>
 							<p>
-								Our designer already made a lot of beautiful prototipe of rooms
-								that inspire you
+								01<span className={css.dash}></span>Bedroom
 							</p>
-							<NavLink>Explore More</NavLink>
-						</div>
-						<div>
-							<div>
-								<p>01 - Bedroom</p>
-								<h3>Inner Peace </h3>
-							</div>
-							<span>
+							<h3>Inner Peace </h3>
+							<NavLink to="/shop" className={css.arrow}>
 								<IoIosArrowRoundForward />
-							</span>
-						</div>
-						<div className={css.sliderContainer}>
-							<ImageSlider slides={slides} />
+							</NavLink>
 						</div>
 					</div>
+					<div className={css.sliderContainer}>
+						<ImageSlider slides={slides} />
+					</div>
+				</div>
+			</section>
+			<section className={css.gallerySection}>
+				<div className={css.galleryContainer}>
+					<p>Share your setup with</p>
+					<p>#FuniroFurniture</p>
+					<div className={css.gallery}></div>
 				</div>
 			</section>
 		</main>
