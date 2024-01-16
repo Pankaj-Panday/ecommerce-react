@@ -22,7 +22,7 @@ const ImageSlider = ({ slides }) => {
 						return (
 							<div
 								key={index}
-								style={{ backgroundImage: `url(${slide.img})` }}
+								style={{ backgroundImage: `url(${slide})` }}
 								className={css.slide}
 							></div>
 						);

@@ -1,20 +1,23 @@
 import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import css from "./home.module.css";
-import { categoryData, slides } from "../../homeData";
+import { categoryData, slidesArr, galleryImages } from "../../homeData";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";
+import ImageGallery from "../../components/imageGallery/ImageGallery";
 
 export async function loader() {
-	// using loader just to understand its implementation, otherwise we can directly use categoryData
+	// using loader just to understand its implementation, otherwise we can directly use the data
 	const categories = categoryData;
-	return categories;
+	const slides = slidesArr;
+	const images = galleryImages;
+	return { categories, slides, images };
 }
 
 const Home = () => {
-	const categories = useLoaderData();
+	const { categories, slides, images } = useLoaderData();
 	return (
 		<main>
 			<section className={css.heroSection}>
@@ -92,10 +95,10 @@ const Home = () => {
 				</div>
 			</section>
 			<section className={css.gallerySection}>
+				<p>Share your setup with</p>
+				<p>#FuniroFurniture</p>
 				<div className={css.galleryContainer}>
-					<p>Share your setup with</p>
-					<p>#FuniroFurniture</p>
-					<div className={css.gallery}></div>
+					<ImageGallery images={images} />
 				</div>
 			</section>
 		</main>

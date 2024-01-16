@@ -56,3 +56,9 @@ a {
 		width: 92%;
 	}
 }
+
+@media screen and (max-width: 694px) {
+	html {
+		font-size: 13px;
+	}
+}

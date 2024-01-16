@@ -69,6 +69,10 @@
 		--dots-height: 23px;
 		--dots-mt: 20px;
 	}
+	.dot {
+		height: 8px;
+		width: 8px;
+	}
 	.dot.active {
 		outline-offset: 4px;
 	}

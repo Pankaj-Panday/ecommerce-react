@@ -1,7 +1,7 @@
 .heroSection {
 	height: calc(100vh - var(--header-height));
-	max-height: 716px;
-	min-height: 400px;
+	max-height: 45rem;
+	min-height: 25rem;
 	background-image: url("images/heroSectionbg.jpg");
 	background-repeat: no-repeat;
 	background-position: center bottom;
@@ -38,7 +38,7 @@
 
 .heroContainer p:nth-of-type(2) {
 	color: #333333;
-	line-height: 24px;
+	line-height: 1.5rem;
 	font-size: 1.125rem;
 	font-weight: var(--fw-medium);
 	margin-bottom: 2rem;
@@ -70,13 +70,13 @@
 .categoriesContainer {
 	display: flex;
 	margin-top: 3.8rem;
-	gap: max(1.5%, 20px);
+	gap: max(1.5%, 25px);
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
 .categoriesContainer > div {
-	min-width: 270px;
+	min-width: 17rem;
 	width: 32%;
 }
 
@@ -141,10 +141,10 @@
 .exploreContainer {
 	width: 95%;
 	margin: 0 auto;
-	max-width: 1440px;
+	max-width: 90rem;
 	display: flex;
 	align-items: center;
-	gap: 20px;
+	gap: 1.25rem;
 	justify-content: space-between;
 }
 
@@ -164,7 +164,7 @@
 	color: #616161;
 	font-weight: var(--fw-medium);
 	line-height: 1.5;
-	margin-top: 7px;
+	margin-top: 0.5rem;
 }
 
 .exploreContainer .first a {
@@ -175,7 +175,7 @@
 	background-color: var(--clr-brand-primary);
 	padding: 0.75rem 2.25rem;
 	display: inline-block;
-	min-width: 176px;
+	min-width: 11rem;
 	text-align: center;
 }
 
@@ -184,11 +184,11 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	max-width: 404px;
-	height: 582px;
+	max-width: 25.2rem;
+	height: 36.3rem;
 	position: relative;
 	width: 36%;
-	min-width: 320px;
+	min-width: 20rem;
 }
 
 .exploreContainer .second div {
@@ -206,15 +206,15 @@
 	font-weight: var(--fw-medium);
 	display: flex;
 	align-items: center;
-	margin-bottom: 8px;
+	margin-bottom: 0.5rem;
 }
 
 .exploreContainer .second .dash {
-	width: 27px;
+	width: 1.7rem;
 	display: inline-block;
 	height: 1px;
 	background-color: #616161;
-	margin: 0 8px;
+	margin: 0 0.5rem;
 }
 
 .exploreContainer .second h3 {
@@ -226,8 +226,8 @@
 
 .exploreContainer .second .arrow {
 	background: var(--clr-brand-primary);
-	height: 48px;
-	width: 48px;
+	height: 3rem;
+	width: 3rem;
 	display: grid;
 	place-items: center;
 	position: absolute;
@@ -238,16 +238,47 @@
 
 .exploreContainer .second .arrow svg {
 	color: #fff;
-	height: 48px;
-	width: 28px;
+	height: 3rem;
+	width: 1.75rem;
 }
 
 .sliderContainer {
 	align-self: flex-start;
-	height: 546px;
-	max-width: 372px;
-	min-width: 320px;
+	height: 34rem;
+	max-width: 23.2rem;
+	min-width: 20rem;
 	width: 34%;
+}
+
+.gallerySection {
+	margin: 0 auto;
+	margin-top: 4.2rem;
+	width: 100%;
+	max-width: 90rem;
+}
+
+.gallerySection > p {
+	text-align: center;
+}
+
+.gallerySection > p:first-child {
+	font-size: 1.25rem;
+	color: #616161;
+	line-height: 1.5;
+	font-weight: var(--fw-semi-bold);
+	margin-bottom: 0.5rem;
+}
+
+.gallerySection > p:nth-child(2) {
+	font-size: 2.5rem;
+	color: #3a3a3a;
+	font-weight: var(--fw-bold);
+	line-height: 1.2;
+}
+
+.galleryContainer {
+	width: 100%;
+	height: 45rem;
 }
 
 @media screen and (max-width: 1020px) {
@@ -256,53 +287,51 @@
 		justify-content: center;
 	}
 	.exploreContainer .first {
-		margin-bottom: 30px;
+		margin-bottom: 1.875rem;
 		text-align: center;
+		width: 100%;
+	}
+	.galleryContainer {
+		height: 32.5rem;
+	}
+}
+
+@media screen and (max-width: 944px) {
+	.heroSection > div {
+		justify-content: unset;
+	}
+	.heroContainer {
 		width: 100%;
 	}
 }
 
+@media screen and (max-width: 840px) {
+	.galleryContainer {
+		height: auto;
+	}
+}
+
 @media screen and (max-width: 694px) {
+	.heroContainer h1 {
+		line-height: 1.1;
+	}
+	.heroContainer p:nth-of-type(2) {
+		line-height: 1.3;
+	}
+	.categoriesContainer h3 {
+		margin-top: 0.8rem;
+	}
 	.exploreContainer {
 		justify-content: unset;
 	}
 	.exploreContainer .first {
-		margin-bottom: 10px;
+		margin-bottom: 0.625rem;
 		text-align: left;
 	}
 	.exploreContainer .second {
-		height: 420px;
+		height: 26.25rem;
 	}
 	.exploreContainer .sliderContainer {
-		height: 420px;
+		height: 26.25rem;
 	}
-}
-
-.gallerySection {
-	margin-top: 4.2rem;
-}
-
-.galleryContainer {
-	margin: 0 auto;
-	width: 100%;
-	max-width: 1600px;
-}
-
-.galleryContainer > p {
-	text-align: center;
-}
-
-.galleryContainer > p:first-child {
-	font-size: 1.25rem;
-	color: #616161;
-	line-height: 1.5;
-	font-weight: var(--fw-semi-bold);
-	margin-bottom: 0.5rem;
-}
-
-.galleryContainer > p:nth-child(2) {
-	font-size: 2.5rem;
-	color: #3a3a3a;
-	font-weight: var(--fw-bold);
-	line-height: 1.2;
 }
