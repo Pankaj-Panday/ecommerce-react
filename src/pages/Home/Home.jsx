@@ -1,23 +1,33 @@
 import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import css from "./home.module.css";
-import { categoryData, slidesArr, galleryImages } from "../../homeData";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
+
+// Data
+import {
+	categoryData,
+	slidesArr,
+	galleryImages,
+	productsList,
+} from "../../homeData";
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";
 import ImageGallery from "../../components/imageGallery/ImageGallery";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 export async function loader() {
 	// using loader just to understand its implementation, otherwise we can directly use the data
 	const categories = categoryData;
 	const slides = slidesArr;
 	const images = galleryImages;
-	return { categories, slides, images };
+	const products = productsList;
+	return { categories, slides, images, products };
 }
 
 const Home = () => {
-	const { categories, slides, images } = useLoaderData();
+	const { categories, slides, images, products } = useLoaderData();
+
 	return (
 		<main>
 			<section className={css.heroSection}>
@@ -62,7 +72,17 @@ const Home = () => {
 			<section className={css.productSection}>
 				<div className="mainContainer">
 					<h2>Our Products</h2>
-					<div className={css.products}></div>
+					<ul className={css.products}>
+						{products.slice(0, 8).map((product, index) => {
+							if (index < 8) {
+								return (
+									<li key={index}>
+										<ProductCard product={product} />
+									</li>
+								);
+							}
+						})}
+					</ul>
 					<NavLink to="/shop" className={css.showMoreBtn}>
 						Show more
 					</NavLink>
