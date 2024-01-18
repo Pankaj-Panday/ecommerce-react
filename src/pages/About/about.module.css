@@ -1,0 +1,51 @@
+.aboutSection {
+	margin-top: 4rem;
+}
+
+.aboutSection section:not(.aboutSection section:nth-of-type(3)) {
+	margin-bottom: 3.5rem;
+}
+
+.aboutSection h3 {
+	font-size: 1.5rem;
+	color: #000;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+.aboutSection img {
+	object-fit: cover;
+	object-position: top;
+	width: 90%;
+	max-height: 350px;
+	margin-bottom: 1rem;
+}
+
+.aboutSection p {
+	font-size: 1.2rem;
+	color: #000;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+	.aboutSection img {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.aboutSection section {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.aboutSection section:nth-child(2) {
+		flex-direction: row-reverse;
+	}
+
+	.aboutSection section > * {
+		width: 49%;
+		max-height: unset;
+	}
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import css from "./productcard.module.css";
 
 // icon
@@ -27,7 +28,9 @@ const ProductCard = ({ product }) => {
 				</button>
 			</div>
 			<div className={css.productDetails}>
-				<h4 className={css.name}>{name}</h4>
+				<h4 className={css.name}>
+					<NavLink to="/shop">{name}</NavLink>
+				</h4>
 				<p className={css.category}>{category}</p>
 				<div className={css.price}>
 					<p className={css.effectivePrice}>{effectivePrice} &#8377;</p>
