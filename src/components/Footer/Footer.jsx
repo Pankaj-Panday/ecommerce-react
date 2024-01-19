@@ -105,6 +105,7 @@ const Footer = () => {
 								type="email"
 								placeholder="Enter your email address"
 								className={css.formInput}
+								autoComplete="off"
 							/>
 							<button type="submit" className={css.formBtn}>
 								Subscribe

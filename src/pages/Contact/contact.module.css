@@ -1,0 +1,109 @@
+.header {
+	margin: 6.125rem 0 8.3rem;
+	text-align: center;
+}
+
+.header h2 {
+	font-size: 2.25rem;
+	line-height: 1.5;
+	color: #000;
+	font-weight: var(--fw-semi-bold);
+	margin-bottom: 0.5rem;
+	text-transform: capitalize;
+}
+
+.header p {
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #9f9f9f;
+	font-weight: var(--fw-normal);
+}
+
+.contactContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 3rem;
+}
+
+@media screen and (min-width: 950px) {
+	.contactContainer {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}
+
+.details > div {
+	margin-bottom: 2.62rem;
+	display: flex;
+	gap: 1.875rem;
+}
+
+.details h3 {
+	font-size: 1.5rem;
+	color: #000;
+	line-height: 1.5;
+	font-weight: var(-fw-medium);
+}
+
+.details p {
+	font-size: 1rem;
+	color: #000;
+	line-height: 1.5;
+	font-weight: var(-fw-normal);
+}
+
+.icon svg {
+	width: 1.4rem;
+	height: 1.4rem;
+	margin-bottom: -1rem;
+}
+
+.contactForm,
+.input > textarea {
+	max-width: 32rem;
+	min-width: 21rem;
+}
+
+.input > label {
+	font-size: 1rem;
+	color: #000;
+	line-height: 1.5;
+	font-weight: var(--fw-medium);
+	margin-bottom: 1.37rem;
+	display: block;
+}
+
+.input > input,
+.input > textarea {
+	outline: 1px solid #9f9f9f;
+	border: none;
+	padding: 1.325rem 1.8125rem;
+	border-radius: 10px;
+	width: 100%;
+	margin-bottom: 2.25rem;
+}
+
+.input > input:focus-visible,
+.input > textarea:focus-visible {
+	outline: 2px solid var(--clr-brand-primary);
+}
+
+::placeholder {
+	font-size: 1rem;
+	color: #9f9f9f;
+	font-weight: var(--fw-normal);
+}
+
+.sendBtn {
+	background-color: var(--clr-brand-primary);
+	padding: 0.9rem 5rem;
+	color: #ffff;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.sendBtn:active {
+	background-color: var(--clr-brand-primary-active);
+}
