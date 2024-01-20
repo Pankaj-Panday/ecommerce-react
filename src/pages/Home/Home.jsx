@@ -11,18 +11,19 @@ import productsList from "../../productData.js";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import ImageGallery from "../../components/imageGallery/ImageGallery";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import useProductContext from "../../hooks/useProductContext.js";
 
 export async function loader() {
 	// using loader just to understand its implementation, otherwise we can directly use the data
 	const categories = categoryData;
 	const slides = slidesArr;
 	const images = galleryImages;
-	const products = productsList;
-	return { categories, slides, images, products };
+	return { categories, slides, images };
 }
 
 const Home = () => {
-	const { categories, slides, images, products } = useLoaderData();
+	const { categories, slides, images } = useLoaderData();
+	const { isLoading, featuredProducts } = useProductContext();
 
 	return (
 		<main>
@@ -69,15 +70,19 @@ const Home = () => {
 				<div className="mainContainer">
 					<h2>Our Products</h2>
 					<ul className={css.products}>
-						{products.slice(0, 8).map((product, index) => {
-							if (index < 8) {
-								return (
-									<li key={index}>
-										<ProductCard product={product} />
-									</li>
-								);
-							}
-						})}
+						{isLoading ? (
+							<div>...Loading</div>
+						) : (
+							featuredProducts.map((product, index) => {
+								if (index < 8) {
+									return (
+										<li key={index}>
+											<ProductCard product={product} />
+										</li>
+									);
+								}
+							})
+						)}
 					</ul>
 					<NavLink to="/shop" className={css.showMoreBtn}>
 						Show more

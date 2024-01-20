@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import css from "./productcard.module.css";
 
 // icon
@@ -7,8 +7,16 @@ import { IoMdHeart } from "react-icons/io";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 const ProductCard = ({ product }) => {
-	const { name, category, price, discountPercent, isNew, isWishlisted, img } =
-		product;
+	const {
+		id,
+		name,
+		category,
+		price,
+		discountPercent,
+		isNew,
+		isWishlisted,
+		img,
+	} = product;
 	const effectivePrice = discountPercent
 		? Math.round((price * (100 - discountPercent)) / 100)
 		: price;
@@ -29,7 +37,7 @@ const ProductCard = ({ product }) => {
 			</div>
 			<div className={css.productDetails}>
 				<h4 className={css.name}>
-					<NavLink to="/shop">{name}</NavLink>
+					<Link to={`/product/${id}`}>{name}</Link>
 				</h4>
 				<p className={css.category}>{category}</p>
 				<div className={css.price}>

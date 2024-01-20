@@ -99,7 +99,7 @@ const Contact = () => {
 								name="message"
 								id="message"
 								cols="70"
-								rows="10"
+								rows="5"
 								placeholder="Hi! i’d like to ask about"
 							></textarea>
 						</div>
