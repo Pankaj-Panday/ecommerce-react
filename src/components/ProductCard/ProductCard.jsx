@@ -5,6 +5,7 @@ import css from "./productcard.module.css";
 // icon
 import { IoMdHeart } from "react-icons/io";
 import { IoMdHeartEmpty } from "react-icons/io";
+import FormatPrice from "../../helper/FormatPrice";
 
 const ProductCard = ({ product }) => {
 	const {
@@ -41,9 +42,9 @@ const ProductCard = ({ product }) => {
 				</h4>
 				<p className={css.category}>{category}</p>
 				<div className={css.price}>
-					<p className={css.effectivePrice}>{effectivePrice} &#8377;</p>
+					<FormatPrice className={css.effectivePrice} price={effectivePrice} />
 					{discountPercent && (
-						<p className={css.actualPrice}>{price} &#8377;</p>
+						<FormatPrice className={css.actualPrice} price={price} />
 					)}
 				</div>
 				<button className={css.addToCartBtn}>Add to Cart</button>
