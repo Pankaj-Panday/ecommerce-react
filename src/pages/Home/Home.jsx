@@ -5,7 +5,6 @@ import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 // Data
 import { categoryData, slidesArr, galleryImages } from "../../homeData";
-import productsList from "../../productData.js";
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";

@@ -10,7 +10,7 @@
 .main::before {
 	content: "";
 	display: block;
-	background-image: url("images/secondaryHeaderBg.jpg");
+	background-image: url("/images/secondaryHeaderBg.jpg");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;

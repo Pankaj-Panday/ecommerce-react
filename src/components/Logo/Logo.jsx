@@ -13,7 +13,7 @@ const Logo = ({ style, className, small = null }) => {
 				...style,
 			}}
 		>
-			<img src="images/logo.svg" alt="brand-logo" className={css.logo} />
+			<img src="/images/logo.svg" alt="brand-logo" className={css.logo} />
 			<span
 				className={css.logoText}
 				style={{

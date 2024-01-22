@@ -2,7 +2,7 @@
 	height: calc(100vh - var(--header-height));
 	max-height: 45rem;
 	min-height: 25rem;
-	background-image: url("images/heroSectionbg.jpg");
+	background-image: url("/images/heroSectionbg.jpg");
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: cover;

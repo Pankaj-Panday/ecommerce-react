@@ -11,7 +11,7 @@ const About = () => {
 			<section className={css.aboutSection}>
 				<div className="mainContainer">
 					<section>
-						<img src="images/furniturePic.jpg" alt="furniture" />
+						<img src="/images/furniturePic.jpg" alt="furniture" />
 						<div>
 							<h3>About Furino</h3>
 							<p>
@@ -31,7 +31,7 @@ const About = () => {
 						</div>
 					</section>
 					<section>
-						<img src="images/teamPic1.jpg" alt="team" />
+						<img src="/images/teamPic1.jpg" alt="team" />
 						<div>
 							<h3>Who We Are?</h3>
 							<p>
@@ -48,7 +48,7 @@ const About = () => {
 						</div>
 					</section>
 					<section>
-						<img src="images/teamPic2.jpg" alt="team" />
+						<img src="/images/teamPic2.jpg" alt="team" />
 						<div>
 							<h3>Our Team</h3>
 							<p>
