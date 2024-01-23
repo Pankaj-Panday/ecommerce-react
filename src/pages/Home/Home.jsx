@@ -2,15 +2,14 @@ import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import css from "./home.module.css";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
+import ImageGallery from "../../components/imageGallery/ImageGallery";
+import ProductsGrid from "../../components/ProductsGrid/ProductsGrid.jsx";
 
 // Data
 import { categoryData, slidesArr, galleryImages } from "../../homeData";
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";
-import ImageGallery from "../../components/imageGallery/ImageGallery";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import useProductContext from "../../hooks/useProductContext.js";
 
 export async function loader() {
 	// using loader just to understand its implementation, otherwise we can directly use the data
@@ -22,8 +21,6 @@ export async function loader() {
 
 const Home = () => {
 	const { categories, slides, images } = useLoaderData();
-	const { isLoading, featuredProducts } = useProductContext();
-
 	return (
 		<main>
 			<section className={css.heroSection}>
@@ -68,21 +65,7 @@ const Home = () => {
 			<section className={css.productSection}>
 				<div className="mainContainer">
 					<h2>Our Products</h2>
-					<ul className={css.products}>
-						{isLoading ? (
-							<div>...Loading</div>
-						) : (
-							featuredProducts.map((product, index) => {
-								if (index < 8) {
-									return (
-										<li key={index}>
-											<ProductCard product={product} />
-										</li>
-									);
-								}
-							})
-						)}
-					</ul>
+					<ProductsGrid listName="featured" />
 					<NavLink to="/shop" className={css.showMoreBtn}>
 						Show more
 					</NavLink>

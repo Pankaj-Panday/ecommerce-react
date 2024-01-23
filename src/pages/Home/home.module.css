@@ -115,40 +115,6 @@
 	margin-top: 3.5rem;
 }
 
-.products {
-	margin: 2rem auto;
-	display: grid;
-	gap: 2rem;
-	width: 100%;
-}
-
-@media screen and (min-width: 360px) {
-	.products {
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-		place-content: center;
-	}
-}
-
-@media screen and (min-width: 540px) {
-	.products {
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 1rem;
-	}
-}
-
-@media screen and (min-width: 840px) {
-	.products {
-		gap: 2rem;
-	}
-}
-
-@media screen and (min-width: 1240px) {
-	.products {
-		grid-template-columns: repeat(4, 1fr);
-	}
-}
-
 .showMoreBtn {
 	color: var(--clr-brand-primary);
 	border: 1px solid var(--clr-brand-primary);
@@ -214,7 +180,7 @@
 }
 
 .exploreContainer .second {
-	background-image: url("images/exploreBedRoom.jpg");
+	background-image: url("/images/exploreBedRoom.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

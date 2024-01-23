@@ -1,23 +1,40 @@
 const productReducer = (state, action) => {
 	switch (action.type) {
-		case "data_loading":
+		case "PRODUCTS_LOADING":
 			return {
 				...state,
 				isLoading: true,
 			};
-		case "data_available":
+		case "PRODUCTS_AVAILABLE":
 			return {
 				...state,
 				isLoading: false,
-				featuredProducts: action.data.filter(
+				featuredProducts: action.payload.filter(
 					(product) => product.featured === true
 				),
-				products: action.data,
+				products: action.payload,
 			};
-		case "data_error":
+		case "PRODUCTS_ERROR":
 			return {
 				...state,
 				isLoading: false,
+				isError: true,
+			};
+		case "SINGLE_PRODUCT_LOADING":
+			return {
+				...state,
+				isSingleLoading: true,
+			};
+		case "SINGLE_PRODUCT_AVAILABLE":
+			return {
+				...state,
+				singleProduct: action.payload,
+				isSingleLoading: false,
+			};
+		case "SINGLE_PRODUCT_ERROR":
+			return {
+				...state,
+				isSingleLoading: false,
 				isError: true,
 			};
 		default:
