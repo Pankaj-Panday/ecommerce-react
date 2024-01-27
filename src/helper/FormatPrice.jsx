@@ -6,7 +6,7 @@ const FormatPrice = ({ price, className }) => {
 		currency: "INR",
 		maximumFractionDigits: 2,
 	}).format(price);
-	return <p className={className}>{formattedPrice}</p>;
+	return <span className={className}>{formattedPrice}</span>;
 };
 
 export default FormatPrice;

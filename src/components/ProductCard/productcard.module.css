@@ -94,7 +94,7 @@
 	font-size: 1rem;
 	font-weight: var(--fw-normal);
 	color: #b0b0b0;
-	text-decoration: line-through;
+	/* text-decoration: line-through; */
 }
 
 .addToCartBtn {

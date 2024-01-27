@@ -29,11 +29,12 @@ const initialData = {
 
 const AppProvider = ({ children }) => {
 	const [data, dispatch] = useReducer(reducer, initialData);
+	const delay = 0;
 
 	const getProducts = async () => {
 		dispatch({ type: "PRODUCTS_LOADING" });
 		try {
-			const products = await apiCallToGetProducts(1000);
+			const products = await apiCallToGetProducts(delay);
 			dispatch({ type: "PRODUCTS_AVAILABLE", payload: products });
 		} catch (error) {
 			dispatch({ type: "PRODUCTS_ERROR" });
@@ -44,7 +45,7 @@ const AppProvider = ({ children }) => {
 	const getSingleProduct = async (productId) => {
 		dispatch({ type: "SINGLE_PRODUCT_LOADING" });
 		try {
-			const products = await apiCallToGetProducts(1000);
+			const products = await apiCallToGetProducts(delay);
 			const singleProduct = products.find(
 				(product) => product.id === productId
 			);

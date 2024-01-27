@@ -30,6 +30,7 @@ const productReducer = (state, action) => {
 				...state,
 				singleProduct: action.payload,
 				isSingleLoading: false,
+				isError: false,
 			};
 		case "SINGLE_PRODUCT_ERROR":
 			return {

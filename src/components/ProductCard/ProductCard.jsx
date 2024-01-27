@@ -44,7 +44,9 @@ const ProductCard = ({ product }) => {
 				<div className={css.price}>
 					<FormatPrice className={css.effectivePrice} price={effectivePrice} />
 					{discountPercent && (
-						<FormatPrice className={css.actualPrice} price={price} />
+						<s className={css.actualPrice}>
+							<FormatPrice price={price} />
+						</s>
 					)}
 				</div>
 				<button className={css.addToCartBtn}>Add to Cart</button>
