@@ -1,0 +1,23 @@
+.heading {
+	text-align: center;
+	font-size: 2.25rem;
+	font-weight: var(--fw-medium);
+	margin-bottom: 1.5rem;
+}
+
+.showMoreBtn {
+	color: var(--clr-brand-primary);
+	border: 1px solid var(--clr-brand-primary);
+	font-weight: var(--fw-semi-bold);
+	padding: 0.75rem 4.6rem;
+	transition: all 100ms ease-out;
+	width: 15.3rem;
+	text-align: center;
+	display: block;
+	margin: 2rem auto 0;
+}
+.showMoreBtn:active {
+	color: #ffffff;
+	border: 1px solid var(--clr-brand-primary);
+	background-color: var(--clr-brand-primary);
+}

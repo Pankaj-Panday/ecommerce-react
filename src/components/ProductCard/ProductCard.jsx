@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import css from "./productcard.module.css";
 
 // icon
@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
 		discountPercent,
 		isNew,
 		isWishlisted,
-		img,
+		thumbnail,
 	} = product;
 	const effectivePrice = discountPercent
 		? Math.round((price * (100 - discountPercent)) / 100)
@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
 		<div className={css.product}>
 			<div
 				className={css.productDisplay}
-				style={{ backgroundImage: `url("${img}")` }}
+				style={{ backgroundImage: `url("${thumbnail}")` }}
 			>
 				{discountPercent && (
 					<p className={`${css.label}`}>-{discountPercent}%</p>
@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
 			</div>
 			<div className={css.productDetails}>
 				<h4 className={css.name}>
-					<Link to={`/product/${id}`}>{name}</Link>
+					<NavLink to={`/product/${id}`}>{name}</NavLink>
 				</h4>
 				<p className={css.category}>{category}</p>
 				<div className={css.price}>

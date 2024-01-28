@@ -10,11 +10,11 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import RelatedProducts from "../../components/RelatedProducts/RelatedProducts.jsx";
 
 const Product = () => {
 	const { id } = useParams();
-	const { getSingleProduct, isSingleLoading, singleProduct } =
-		useProductContext();
+	const { getSingleProduct, isLoading, singleProduct } = useProductContext();
 
 	const {
 		id: productId,
@@ -29,17 +29,18 @@ const Product = () => {
 		shortDescription,
 		longDescription,
 		tags,
+		relatedProducts,
 	} = singleProduct;
 
 	useEffect(() => {
 		getSingleProduct(Number(id));
-	}, []);
+	}, [id]);
 
 	const effectivePrice = ((100 - discountPercent) / 100) * price;
 
 	return (
 		<main>
-			{isSingleLoading ? (
+			{isLoading ? (
 				<div>...Loading</div>
 			) : (
 				<div>
@@ -63,7 +64,7 @@ const Product = () => {
 						<div className="mainContainer">
 							<div className={css.productContainer}>
 								<div className={css.productImage}>
-									<ProductImageCase />
+									<ProductImageCase images={images} />
 								</div>
 								<div className={css.productInformation}>
 									<h2>{productName}</h2>
@@ -130,10 +131,16 @@ const Product = () => {
 												<tr>
 													<td>Share</td>
 													<td>:</td>
-													<td>
-														<FaFacebook />
-														<FaInstagram />
-														<FaXTwitter />
+													<td className={css.socialIcons}>
+														<Link>
+															<FaFacebook />
+														</Link>
+														<Link>
+															<FaInstagram />
+														</Link>
+														<Link>
+															<FaXTwitter />
+														</Link>
 													</td>
 												</tr>
 											</tbody>
@@ -159,14 +166,8 @@ const Product = () => {
 							</div>
 						</div>
 					</section>
-					a
 					<section className={css.relatedProducts}>
-						<div className="mainContainer">
-							<h2>Related Products</h2>
-							<NavLink to="/shop" className={css.showMoreBtn}>
-								Show more
-							</NavLink>
-						</div>
+						<RelatedProducts />
 					</section>
 				</div>
 			)}

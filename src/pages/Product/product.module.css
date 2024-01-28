@@ -42,18 +42,10 @@
 	margin-bottom: 4.125rem;
 }
 
-.productContainer {
-	display: flex;
-	justify-content: space-between;
-}
-
-.productContainer > div {
-	width: 50%;
-}
-
 .productInformation h2 {
 	font-size: 2.625rem;
 	font-weight: var(--fw-normal);
+	margin-top: 1.5rem;
 }
 
 .price {
@@ -72,6 +64,7 @@
 .feedback {
 	display: flex;
 	gap: 2rem;
+	margin-bottom: 1.1rem;
 }
 
 .feedback > p:nth-child(2) {
@@ -80,7 +73,6 @@
 	position: relative;
 	padding-left: 2rem;
 	border-left: 2px solid #9f9f9f;
-	margin-bottom: 1.1rem;
 }
 
 .sizeContainer {
@@ -126,13 +118,8 @@
 	cursor: pointer;
 }
 
-.productInformation .description {
-	font-size: 0.8125rem;
-	width: 70%;
-}
-
 .actionButtons {
-	margin-bottom: 3.75rem;
+	margin-bottom: 2rem;
 }
 
 .actionButtons button {
@@ -141,21 +128,36 @@
 	text-transform: capitalize;
 	background-color: transparent;
 	border-radius: 1rem;
-	padding: 1rem 3rem;
-	font-size: 1.25rem;
-	margin-right: 1.125rem;
-	margin-bottom: 1rem;
+	padding: 0.5rem 1.5rem;
+	font-size: 1rem;
+	margin-right: 0.3rem;
+	margin-bottom: 0.3rem;
 }
 
 .horizontalLine {
 	height: 1px;
 	border: 0;
 	background-color: #d9d9d9;
-	margin-bottom: 2.56rem;
+	margin-bottom: 2rem;
 }
 
 .productTable td {
 	color: #9f9f9f;
+	height: 2rem;
+	text-transform: capitalize;
+}
+
+.productTable td:nth-child(2) {
+	padding-left: 2rem;
+	padding-right: 0.5rem;
+}
+
+.productTable .socialIcons svg {
+	color: black;
+	height: 100%;
+	width: 1.25rem;
+	margin-right: 0.8rem;
+	vertical-align: middle;
 }
 
 .productDetails {
@@ -164,15 +166,11 @@
 }
 
 .productDetails > div {
-	padding: 3rem 0;
+	padding: 2rem 0;
 }
 
 .headings {
-	display: flex;
-	justify-content: center;
-	gap: 3.125rem;
 	margin-bottom: 2.25rem;
-	text-align: center;
 }
 
 .headings h2 {
@@ -181,6 +179,7 @@
 	font-weight: var(--fw-normal);
 	line-height: 1.5;
 	cursor: pointer;
+	margin-bottom: 0.7rem;
 }
 
 .headings .activeHeading {
@@ -203,7 +202,66 @@
 	border-radius: 10px;
 }
 
+.relatedProducts {
+	margin: 2rem 0;
+}
+
+@media screen and (min-width: 600px) {
+	.productContainer {
+		display: flex;
+		justify-content: space-between;
+		gap: max(4%, 1rem);
+	}
+
+	.productContainer > div {
+		width: 50%;
+	}
+
+	.productImage {
+		position: relative;
+	}
+
+	.productInformation h2 {
+		margin-top: 0;
+	}
+
+	.actionButtons {
+		margin-bottom: 3.75rem;
+	}
+
+	.actionButtons button {
+		padding: 0.6rem 2rem;
+		font-size: 1.125rem;
+	}
+
+	.horizontalLine {
+		margin-bottom: 2.56rem;
+	}
+
+	.productDetails > div {
+		padding: 3rem 0;
+	}
+
+	.headings {
+		display: flex;
+		justify-content: center;
+		gap: 3.125rem;
+		text-align: center;
+	}
+
+	.headings h2 {
+		margin-bottom: 0;
+	}
+	.relatedProducts {
+		margin: 4.625rem 0 3.625rem 0;
+	}
+}
+
 @media screen and (min-width: 650px) {
+	.productInformation .description {
+		font-size: 0.9125rem;
+	}
+
 	.productDetails .description + div {
 		flex-direction: row;
 		justify-content: space-between;
@@ -214,19 +272,15 @@
 	}
 }
 
-.showMoreBtn {
-	color: var(--clr-brand-primary);
-	border: 1px solid var(--clr-brand-primary);
-	font-weight: var(--fw-semi-bold);
-	padding: 0.75rem 4.6rem;
-	transition: all 100ms ease-out;
-	width: 15.3rem;
-	text-align: center;
-	display: block;
-	margin: 2rem auto 0;
-}
-.showMoreBtn:active {
-	color: #ffffff;
-	border: 1px solid var(--clr-brand-primary);
-	background-color: var(--clr-brand-primary);
+@media screen and (min-width: 900px) {
+	.productInformation .description {
+		width: 70%;
+	}
+
+	.actionButtons button {
+		padding: 1rem 3rem;
+		font-size: 1.25rem;
+		margin-right: 1.25rem;
+		margin-bottom: 1.25rem;
+	}
 }
