@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link, NavLink, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import css from "./product.module.css";
 
 import useProductContext from "../../hooks/useProductContext";
@@ -7,9 +7,9 @@ import ProductImageCase from "../../components/ProductImageCase/ProductImageCase
 import FormatPrice from "../../helper/FormatPrice.jsx";
 // icon
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { IoIosStarOutline, IoIosStar, IoIosStarHalf } from "react-icons/io";
 import RelatedProducts from "../../components/RelatedProducts/RelatedProducts.jsx";
 
 const Product = () => {
@@ -24,12 +24,13 @@ const Product = () => {
 		price,
 		discountPercent,
 		images,
+		colors,
+		sizes,
 		rating,
 		reviewCount,
 		shortDescription,
 		longDescription,
 		tags,
-		relatedProducts,
 	} = singleProduct;
 
 	useEffect(() => {
@@ -37,6 +38,18 @@ const Product = () => {
 	}, [id]);
 
 	const effectivePrice = ((100 - discountPercent) / 100) * price;
+	const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+	const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
+	const [quantity, setQuantity] = useState(1);
+
+	const navigate = useNavigate();
+
+	const incrementQuantity = () => {
+		quantity < stock ? setQuantity(quantity + 1) : setQuantity(stock);
+	};
+	const decrementQuantity = () => {
+		quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1);
+	};
 
 	return (
 		<main>
@@ -75,25 +88,50 @@ const Product = () => {
 										</s>
 									</p>
 									<div className={css.feedback}>
-										<p>{rating}</p>
+										<Rating rating={rating} />
 										<p>{reviewCount} customer reviews</p>
 									</div>
 									<p className={css.description}>{shortDescription}</p>
 									<div className={css.sizeContainer}>
 										<h3>size</h3>
-										<button>s</button>
-										<button className={css.selected}>m</button>
-										<button>l</button>
+										{sizes?.map((size, index) => {
+											return (
+												<button
+													key={index}
+													onClick={() => setSelectedSizeIndex(index)}
+													className={
+														selectedSizeIndex === index ? css.selected : null
+													}
+												>
+													{size}
+												</button>
+											);
+										})}
 									</div>
 									<div className={css.colorContainer}>
 										<h3>Color</h3>
-										<button style={{ backgroundColor: "#816DFA" }}></button>
-										<button style={{ backgroundColor: "#000000" }}></button>
-										<button style={{ backgroundColor: "#B88E2F" }}></button>
+										{colors?.map((color, index) => {
+											return (
+												<button
+													style={{ backgroundColor: color }}
+													key={index}
+													className={
+														selectedColorIndex === index ? css.selected : null
+													}
+													onClick={() => setSelectedColorIndex(index)}
+												></button>
+											);
+										})}
 									</div>
 									<div className={css.actionButtons}>
-										<button className={css.quantity}>1</button>
-										<button>Add to Cart</button>
+										<QuantitySelector
+											quantity={quantity}
+											onIncrement={incrementQuantity}
+											onDecrement={decrementQuantity}
+										/>
+										<button onClick={() => navigate("/cart")}>
+											Add to Cart
+										</button>
 										<button>Wishlist</button>
 									</div>
 									<hr className={css.horizontalLine} />
@@ -174,5 +212,41 @@ const Product = () => {
 		</main>
 	);
 };
+
+function Rating({ rating }) {
+	const integerRating = Math.floor(rating);
+	const decimalRating = rating - integerRating;
+	return (
+		<div>
+			{Array.from({ length: 5 }, (elem, index) => {
+				return (
+					<span key={index} className={css.star}>
+						{index < integerRating ? (
+							<IoIosStar />
+						) : index === integerRating && decimalRating >= 0.5 ? (
+							<IoIosStarHalf />
+						) : (
+							<IoIosStarOutline />
+						)}
+					</span>
+				);
+			})}
+		</div>
+	);
+}
+
+function QuantitySelector({ quantity, onIncrement, onDecrement }) {
+	return (
+		<div>
+			<button className={css.decrementBtn} onClick={onDecrement}>
+				-
+			</button>
+			<span className={css.quantity}>{quantity}</span>
+			<button className={css.incrementBtn} onClick={onIncrement}>
+				+
+			</button>
+		</div>
+	);
+}
 
 export default Product;

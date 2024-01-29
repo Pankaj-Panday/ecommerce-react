@@ -10,6 +10,7 @@ import { categoryData, slidesArr, galleryImages } from "../../homeData";
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";
+import useProductContext from "../../hooks/useProductContext.js";
 
 export async function loader() {
 	// using loader just to understand its implementation, otherwise we can directly use the data
@@ -21,6 +22,7 @@ export async function loader() {
 
 const Home = () => {
 	const { categories, slides, images } = useLoaderData();
+	const { isLoading, featuredProducts } = useProductContext();
 	return (
 		<main>
 			<section className={css.heroSection}>
@@ -65,7 +67,11 @@ const Home = () => {
 			<section className={css.productSection}>
 				<div className="mainContainer">
 					<h2>Our Products</h2>
-					<ProductsGrid listName="featured" />
+					{isLoading ? (
+						<p>...Loading</p>
+					) : (
+						<ProductsGrid products={featuredProducts} />
+					)}
 					<NavLink to="/shop" className={css.showMoreBtn}>
 						Show more
 					</NavLink>

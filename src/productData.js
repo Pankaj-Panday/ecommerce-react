@@ -13,6 +13,7 @@ const productsList = [
 		reviewCount: 5,
 		stock: 10,
 		relatedProducts: [2, 4, 6, 7],
+		sizes: ["S", "M", "L"],
 		images: [
 			{
 				url: "https://images.pexels.com/photos/11112735/pexels-photo-11112735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -31,6 +32,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
+		colors: ["#816DFA", "#000000", "#B88E2F"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -123,7 +125,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product9.jpg",
+		thumbnail: "/images/product1.jpg",
 	},
 	{
 		id: 10,
@@ -134,7 +136,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: true,
-		thumbnail: "/images/product10.jpg",
+		thumbnail: "/images/product2.jpg",
 	},
 	{
 		id: 11,
@@ -145,7 +147,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product11.jpg",
+		thumbnail: "/images/product3.jpg",
 	},
 	{
 		id: 12,
@@ -156,7 +158,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: true,
-		thumbnail: "/images/product12.jpg",
+		thumbnail: "/images/product4.jpg",
 	},
 	{
 		id: 13,
@@ -167,7 +169,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product13.jpg",
+		thumbnail: "/images/product5.jpg",
 	},
 	{
 		id: 14,
@@ -178,7 +180,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product14.jpg",
+		thumbnail: "/images/product6.jpg",
 	},
 	{
 		id: 15,
@@ -189,7 +191,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product15.jpg",
+		thumbnail: "/images/product7.jpg",
 	},
 	{
 		id: 16,
@@ -200,7 +202,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product16.jpg",
+		thumbnail: "/images/product8.jpg",
 	},
 	{
 		id: 17,
@@ -211,7 +213,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product17.jpg",
+		thumbnail: "/images/product1.jpg",
 	},
 	{
 		id: 18,
@@ -222,7 +224,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product18.jpg",
+		thumbnail: "/images/product2.jpg",
 	},
 	{
 		id: 19,
@@ -233,7 +235,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product19.jpg",
+		thumbnail: "/images/product3.jpg",
 	},
 	{
 		id: 20,
@@ -244,7 +246,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product20.jpg",
+		thumbnail: "/images/product4.jpg",
 	},
 	{
 		id: 21,
@@ -255,7 +257,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product21.jpg",
+		thumbnail: "/images/product5.jpg",
 	},
 	{
 		id: 22,
@@ -266,7 +268,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: true,
-		thumbnail: "/images/product22.jpg",
+		thumbnail: "/images/product6.jpg",
 	},
 	{
 		id: 23,
@@ -277,7 +279,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product23.jpg",
+		thumbnail: "/images/product7.jpg",
 	},
 	{
 		id: 24,
@@ -288,7 +290,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product24.jpg",
+		thumbnail: "/images/product8.jpg",
 	},
 	{
 		id: 25,
@@ -299,7 +301,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product25.jpg",
+		thumbnail: "/images/product1.jpg",
 	},
 	{
 		id: 26,
@@ -310,7 +312,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product26.jpg",
+		thumbnail: "/images/product2.jpg",
 	},
 	{
 		id: 27,
@@ -321,7 +323,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product27.jpg",
+		thumbnail: "/images/product3.jpg",
 	},
 	{
 		id: 28,
@@ -332,7 +334,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product28.jpg",
+		thumbnail: "/images/product4.jpg",
 	},
 	{
 		id: 29,
@@ -343,7 +345,7 @@ const productsList = [
 		featured: false,
 		isNew: false,
 		isWishlisted: false,
-		thumbnail: "/images/product29.jpg",
+		thumbnail: "/images/product5.jpg",
 	},
 	{
 		id: 30,
@@ -354,7 +356,7 @@ const productsList = [
 		featured: false,
 		isNew: true,
 		isWishlisted: false,
-		thumbnail: "/images/product30.jpg",
+		thumbnail: "/images/product6.jpg",
 	},
 ];
 

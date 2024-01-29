@@ -116,14 +116,21 @@
 	margin-right: 1rem;
 	border: transparent;
 	cursor: pointer;
+	opacity: 0.5;
+}
+
+.colorContainer button.selected {
+	opacity: 1;
+	outline: 2px solid var(--clr-brand-primary);
+	outline-offset: 2px;
+	/* box-shadow: 0 0 0 1px inset var(--clr-brand-primary), 0 0 0 2px inset white; */
 }
 
 .actionButtons {
 	margin-bottom: 2rem;
 }
 
-.actionButtons button {
-	cursor: pointer;
+.actionButtons > * {
 	border: 1px solid black;
 	text-transform: capitalize;
 	background-color: transparent;
@@ -132,6 +139,39 @@
 	font-size: 1rem;
 	margin-right: 0.3rem;
 	margin-bottom: 0.3rem;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.actionButtons button {
+	cursor: pointer;
+}
+
+.quantity {
+	display: inline-block;
+	min-width: 2rem;
+	text-align: center;
+}
+
+.decrementBtn,
+.incrementBtn {
+	position: absolute;
+	background-color: transparent;
+	border: none;
+	font: inherit;
+	top: 0;
+	bottom: 0;
+	padding: 0 0.5rem;
+}
+
+.decrementBtn {
+	left: 0;
+}
+
+.incrementBtn {
+	right: 0;
 }
 
 .horizontalLine {
@@ -206,6 +246,11 @@
 	margin: 2rem 0;
 }
 
+.star svg {
+	color: #f8c90f;
+	font-size: 1.2rem;
+}
+
 @media screen and (min-width: 600px) {
 	.productContainer {
 		display: flex;
@@ -229,7 +274,7 @@
 		margin-bottom: 3.75rem;
 	}
 
-	.actionButtons button {
+	.actionButtons > * {
 		padding: 0.6rem 2rem;
 		font-size: 1.125rem;
 	}
@@ -277,8 +322,8 @@
 		width: 70%;
 	}
 
-	.actionButtons button {
-		padding: 1rem 3rem;
+	.actionButtons > * {
+		padding: 1rem 2rem;
 		font-size: 1.25rem;
 		margin-right: 1.25rem;
 		margin-bottom: 1.25rem;
