@@ -5,11 +5,14 @@ import "./index.css";
 
 // context
 import { AppProvider } from "./context/ProductContext";
+import { FilterContextProvider } from "./context/FilterContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<AppProvider>
-			<App />
+			<FilterContextProvider>
+				<App />
+			</FilterContextProvider>
 		</AppProvider>
 	</React.StrictMode>
 );
