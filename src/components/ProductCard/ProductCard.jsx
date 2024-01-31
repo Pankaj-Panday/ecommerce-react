@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import css from "./productcard.module.css";
 
 // icon
-import { IoMdHeart } from "react-icons/io";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import FormatPrice from "../../helper/FormatPrice";
 
 const ProductCard = ({ product }) => {
@@ -28,10 +27,14 @@ const ProductCard = ({ product }) => {
 				className={css.productDisplay}
 				style={{ backgroundImage: `url("${thumbnail}")` }}
 			>
-				{discountPercent && (
-					<p className={`${css.label}`}>-{discountPercent}%</p>
-				)}
-				{isNew && <p className={`${css.label}`}>New</p>}
+				{discountPercent
+					? discountPercent !== 0 && (
+							<p className={`${css.label} ${css.discount}`}>
+								-{discountPercent}%
+							</p>
+					  )
+					: null}
+				{isNew && <p className={`${css.label} ${css.new}`}>New</p>}
 				<button className={css.wishlistIcon}>
 					{isWishlisted ? <IoMdHeart /> : <IoMdHeartEmpty />}
 				</button>
@@ -43,11 +46,13 @@ const ProductCard = ({ product }) => {
 				<p className={css.category}>{category}</p>
 				<div className={css.price}>
 					<FormatPrice className={css.effectivePrice} price={effectivePrice} />
-					{discountPercent && (
-						<s className={css.actualPrice}>
-							<FormatPrice price={price} />
-						</s>
-					)}
+					{discountPercent
+						? discountPercent !== 0 && (
+								<s className={css.actualPrice}>
+									<FormatPrice price={price} />
+								</s>
+						  )
+						: null}
 				</div>
 				<button className={css.addToCartBtn}>Add to Cart</button>
 			</div>

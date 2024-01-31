@@ -38,7 +38,7 @@ const Shop = () => {
 							className={`${css.icon} ${!gridView ? css.active : null}`}
 							onClick={() => setGridview(false)}
 						/>
-						<span>Showing 1–16 of 32 results</span>
+						<span>Showing 1–16 of {filteredProducts.length} results</span>
 					</div>
 					<div className={css.sortContainer}>
 						<div className={css.dropDown}>

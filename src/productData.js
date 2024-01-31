@@ -44,7 +44,7 @@ const productsList = [
 		name: "Zenith",
 		category: "Sofa",
 		price: 800,
-		discountPercent: 20,
+		discountPercent: 0,
 		featured: true,
 		isNew: false,
 		isWishlisted: false,

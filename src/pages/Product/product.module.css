@@ -246,11 +246,6 @@
 	margin: 2rem 0;
 }
 
-.star svg {
-	color: #f8c90f;
-	font-size: 1.2rem;
-}
-
 @media screen and (min-width: 600px) {
 	.productContainer {
 		display: flex;

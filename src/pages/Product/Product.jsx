@@ -5,11 +5,11 @@ import css from "./product.module.css";
 import useProductContext from "../../hooks/useProductContext";
 import ProductImageCase from "../../components/ProductImageCase/ProductImageCase.jsx";
 import FormatPrice from "../../helper/FormatPrice.jsx";
+import Rating from "../../components/Rating/Rating.jsx";
 // icon
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { IoIosStarOutline, IoIosStar, IoIosStarHalf } from "react-icons/io";
 import RelatedProducts from "../../components/RelatedProducts/RelatedProducts.jsx";
 
 const Product = () => {
@@ -212,28 +212,6 @@ const Product = () => {
 		</main>
 	);
 };
-
-function Rating({ rating }) {
-	const integerRating = Math.floor(rating);
-	const decimalRating = rating - integerRating;
-	return (
-		<div>
-			{Array.from({ length: 5 }, (elem, index) => {
-				return (
-					<span key={index} className={css.star}>
-						{index < integerRating ? (
-							<IoIosStar />
-						) : index === integerRating && decimalRating >= 0.5 ? (
-							<IoIosStarHalf />
-						) : (
-							<IoIosStarOutline />
-						)}
-					</span>
-				);
-			})}
-		</div>
-	);
-}
 
 function QuantitySelector({ quantity, onIncrement, onDecrement }) {
 	return (
