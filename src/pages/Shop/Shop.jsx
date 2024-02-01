@@ -12,12 +12,20 @@ import { HiViewGrid } from "react-icons/hi";
 import { BsViewList } from "react-icons/bs";
 
 const Shop = () => {
-	const { filteredProducts, gridView, dispatch } = useFilterContext();
+	const {
+		filteredProducts,
+		gridView,
+		dispatch,
+		itemCount,
+		allProducts,
+		sortByValue,
+	} = useFilterContext();
 	const [showFilter, setShowFilter] = useState(false);
 	function setGridview(value) {
 		dispatch({ type: "SET_GRID_VIEW", value: value });
 	}
-
+	const totalProductsFound = allProducts.length;
+	const productShown = filteredProducts.length; // may change once pagination kind of thing happens
 	return (
 		<main>
 			<SecondaryHeader />
@@ -38,28 +46,51 @@ const Shop = () => {
 							className={`${css.icon} ${!gridView ? css.active : null}`}
 							onClick={() => setGridview(false)}
 						/>
-						<span>Showing 1–16 of {filteredProducts.length} results</span>
+						{totalProductsFound > 0 ? (
+							<span>
+								Showing 1–{productShown} of {totalProductsFound} results
+							</span>
+						) : (
+							<span>No result found</span>
+						)}
 					</div>
 					<div className={css.sortContainer}>
-						<div className={css.dropDown}>
+						<form className={css.dropDown}>
 							<label htmlFor="itemCount">Show</label>
-							<select name="itemCount" id="itemCount">
+							<select
+								name="itemCount"
+								id="itemCount"
+								value={itemCount}
+								onChange={(e) => {
+									dispatch({
+										type: "CHANGE_ITEMS_COUNT",
+										count: e.target.value,
+									});
+								}}
+							>
 								<option value="4">4</option>
 								<option value="8">8</option>
 								<option value="12">12</option>
 								<option value="16">16</option>
 								<option value="20">20</option>
 							</select>
-						</div>
-						<div className={css.dropDown}>
+						</form>
+						<form className={css.dropDown}>
 							<label htmlFor="sortBy">Sort by</label>
-							<select name="sort" id="sortBy">
-								<option value="">abcd</option>
-								<option value="">abcd</option>
-								<option value="">abcd</option>
-								<option value="">abcd</option>
+							<select
+								name="sort"
+								id="sortBy"
+								value={sortByValue}
+								onChange={(e) => {
+									dispatch({ type: "SORT_PRODUCTS", value: e.target.value });
+								}}
+							>
+								<option value="ascending">Price: Low to High</option>
+								<option value="descending">Price: High to Low</option>
+								<option value="a-z">Alphabet (A-Z)</option>
+								<option value="z-a">Alphabet (Z-A)</option>
 							</select>
-						</div>
+						</form>
 					</div>
 				</div>
 			</section>

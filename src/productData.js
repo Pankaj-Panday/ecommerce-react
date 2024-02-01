@@ -50,6 +50,7 @@ const productsList = [
 		isWishlisted: false,
 		thumbnail: "/images/product2.jpg",
 	},
+
 	{
 		id: 3,
 		name: "Cascade",

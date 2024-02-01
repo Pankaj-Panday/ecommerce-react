@@ -8,6 +8,8 @@ const initialData = {
 	filteredProducts: [],
 	allProducts: [],
 	gridView: true,
+	itemCount: 12,
+	sortByValue: "ascending",
 };
 
 export const FilterContextProvider = ({ children }) => {
@@ -15,7 +17,11 @@ export const FilterContextProvider = ({ children }) => {
 	const [data, dispatch] = useReducer(reducer, initialData);
 
 	useEffect(() => {
-		dispatch({ type: "LOAD_FILTERED_PRODUCTS", payload: products });
+		dispatch({
+			type: "LOAD_FILTERED_PRODUCTS",
+			payload: products,
+			count: data.itemCount,
+		});
 	}, [products]);
 
 	return (

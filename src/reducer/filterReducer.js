@@ -4,12 +4,23 @@ const filterReducer = (data, action) => {
 			return {
 				...data,
 				allProducts: [...action.payload],
-				filteredProducts: [...action.payload],
+				filteredProducts: [...action.payload.slice(0, action.count)],
 			};
 		case "SET_GRID_VIEW":
 			return {
 				...data,
 				gridView: action.value,
+			};
+		case "CHANGE_ITEMS_COUNT":
+			return {
+				...data,
+				itemCount: action.count,
+				filteredProducts: [...data.allProducts.slice(0, action.count)],
+			};
+		case "SORT_PRODUCTS":
+			return {
+				...data,
+				sortByValue: action.value,
 			};
 		default:
 			break;
