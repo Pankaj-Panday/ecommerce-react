@@ -24,7 +24,9 @@ const ProductsList = ({ products }) => {
 						<div>
 							<div>
 								<h4 className={css.productName}>
-									<Link to={`/product/${product.id}`}>{product.name}</Link>
+									<Link to={`/product/${product.id}`}>
+										{product.name.toUpperCase()}
+									</Link>
 								</h4>
 								<p className={css.category}>{product.category}</p>
 								<div className={css.price}>

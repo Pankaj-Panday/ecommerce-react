@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
 			</div>
 			<div className={css.productDetails}>
 				<h4 className={css.name}>
-					<NavLink to={`/product/${id}`}>{name}</NavLink>
+					<NavLink to={`/product/${id}`}>{name.toUpperCase()}</NavLink>
 				</h4>
 				<p className={css.category}>{category}</p>
 				<div className={css.price}>
