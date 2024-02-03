@@ -16,16 +16,23 @@ export const FilterContextProvider = ({ children }) => {
 	const { products } = useProductContext();
 	const [data, dispatch] = useReducer(reducer, initialData);
 
+	function sortProducts() {
+		dispatch({ type: "SET_SORTBY_VALUE" });
+	}
+
+	useEffect(() => {
+		dispatch({ type: "SORT_PRODUCTS", payload: products });
+	}, [data.sortByValue]);
+
 	useEffect(() => {
 		dispatch({
 			type: "LOAD_FILTERED_PRODUCTS",
 			payload: products,
-			count: data.itemCount,
 		});
 	}, [products]);
 
 	return (
-		<FilterContext.Provider value={{ ...data, dispatch }}>
+		<FilterContext.Provider value={{ ...data, dispatch, sortProducts }}>
 			{children}
 		</FilterContext.Provider>
 	);

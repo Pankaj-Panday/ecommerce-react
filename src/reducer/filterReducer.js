@@ -4,54 +4,51 @@ const filterReducer = (data, action) => {
 			return {
 				...data,
 				allProducts: [...action.payload],
-				filteredProducts: applyFilters(action.payload, data),
+				filteredProducts: [...action.payload],
 			};
 		case "SET_GRID_VIEW":
 			return {
 				...data,
 				gridView: action.value,
 			};
+		case "SET_SORTBY_VALUE":
+			let sortByInputField = document.getElementById("sortBy");
+			let newSortByValue =
+				sortByInputField.options[sortByInputField.selectedIndex].value;
+			return {
+				...data,
+				sortByValue: newSortByValue,
+			};
+		case "SORT_PRODUCTS":
+			let productsToSort = [...action.payload];
+			switch (data.sortByValue) {
+				case "ascending":
+					productsToSort.sort(ascendingByPrice);
+					break;
+				case "descending":
+					productsToSort.sort(descendingByPrice);
+					break;
+				case "a-z":
+					productsToSort.sort(ascendingByName);
+					break;
+				case "z-a":
+					productsToSort.sort(descendingByName);
+					break;
+				default:
+					break;
+			}
+			return {
+				...data,
+				filteredProducts: [...productsToSort],
+			};
 		case "CHANGE_ITEMS_COUNT":
 			return {
 				...data,
-				itemCount: action.count,
-				filteredProducts: applyFilters(data.filteredProducts, data),
-			};
-		case "SORT_PRODUCTS":
-			return {
-				...data,
-				sortByValue: action.value,
-				filteredProducts: applyFilters(data.allProducts, data),
 			};
 		default:
 			break;
 	}
 };
-
-function applyFilters(products, filters) {
-	console.log("triggered");
-	let filteredProducts = [...products];
-	if (filters.sortByValue) {
-		let sortedProducts = [...products];
-		switch (filters.sortByValue) {
-			case "ascending":
-				sortedProducts.sort(ascendingByPrice);
-				break;
-			case "descending":
-				sortedProducts.sort(descendingByPrice);
-				break;
-			case "a-z":
-				sortedProducts.sort(ascendingByName);
-				break;
-			case "z-a":
-				sortedProducts.sort(descendingByName);
-				break;
-		}
-		filteredProducts = sortedProducts;
-	}
-
-	return filteredProducts.slice(0, filters.itemCount);
-}
 
 function ascendingByPrice(product1, product2) {
 	const product1EffectivePrice =
@@ -70,15 +67,11 @@ function descendingByPrice(product1, product2) {
 }
 
 function ascendingByName(product1, product2) {
-	if (product1.name > product2.name) return 1;
-	if (product1.name < product2.name) return -1;
-	else return 0;
+	return product1.name.localeCompare(product2.name);
 }
 
 function descendingByName(product1, product2) {
-	if (product1.name > product2.name) return -1;
-	if (product1.name < product2.name) return 1;
-	else return 0;
+	return product2.name.localeCompare(product1.name);
 }
 
 export default filterReducer;

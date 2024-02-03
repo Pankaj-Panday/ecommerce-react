@@ -12,19 +12,13 @@ import { HiViewGrid } from "react-icons/hi";
 import { BsViewList } from "react-icons/bs";
 
 const Shop = () => {
-	const {
-		filteredProducts,
-		gridView,
-		dispatch,
-		itemCount,
-		allProducts,
-		sortByValue,
-	} = useFilterContext();
+	const { filteredProducts, gridView, dispatch, sortProducts } =
+		useFilterContext();
 	const [showFilter, setShowFilter] = useState(false);
 	function setGridview(value) {
 		dispatch({ type: "SET_GRID_VIEW", value: value });
 	}
-	const totalProductsFound = allProducts.length;
+	const totalProductsFound = filteredProducts.length;
 	const productShown = filteredProducts.length; // may change once pagination kind of thing happens
 	return (
 		<main>
@@ -57,17 +51,7 @@ const Shop = () => {
 					<div className={css.sortContainer}>
 						<form className={css.dropDown}>
 							<label htmlFor="itemCount">Show</label>
-							<select
-								name="itemCount"
-								id="itemCount"
-								value={itemCount}
-								onChange={(e) => {
-									dispatch({
-										type: "CHANGE_ITEMS_COUNT",
-										count: e.target.value,
-									});
-								}}
-							>
+							<select name="itemCount" id="itemCount">
 								<option value="4">4</option>
 								<option value="8">8</option>
 								<option value="12">12</option>
@@ -80,11 +64,10 @@ const Shop = () => {
 							<select
 								name="sort"
 								id="sortBy"
-								value={sortByValue}
-								onChange={(e) => {
-									dispatch({ type: "SORT_PRODUCTS", value: e.target.value });
-								}}
+								defaultValue={""}
+								onClick={sortProducts}
 							>
+								<option>--select-an-option--</option>
 								<option value="ascending">Price: Low to High</option>
 								<option value="descending">Price: High to Low</option>
 								<option value="a-z">Alphabet (A-Z)</option>
