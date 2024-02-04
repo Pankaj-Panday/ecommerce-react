@@ -70,8 +70,8 @@ const Shop = () => {
 								<option>--select-an-option--</option>
 								<option value="ascending">Price: Low to High</option>
 								<option value="descending">Price: High to Low</option>
-								<option value="a-z">Alphabet (A-Z)</option>
-								<option value="z-a">Alphabet (Z-A)</option>
+								<option value="a-z">Alphabet: A-Z</option>
+								<option value="z-a">Alphabet: Z-A</option>
 							</select>
 						</form>
 					</div>

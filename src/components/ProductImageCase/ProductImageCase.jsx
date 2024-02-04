@@ -15,14 +15,14 @@ const ProductImageCase = ({
 							className={css.secondaryImage}
 							onClick={() => setActiveImage(index)}
 						>
-							<img src={image.url} alt={image.name} />
+							<img src={image?.url} alt={image?.name} />
 						</figure>
 					);
 				})}
 			</div>
 			<div className={css.primaryImgContainer}>
 				<figure className={css.primaryImage}>
-					<img src={images[activeImage].url} alt={images[activeImage].name} />
+					<img src={images[activeImage]?.url} alt={images[activeImage]?.name} />
 				</figure>
 			</div>
 		</section>

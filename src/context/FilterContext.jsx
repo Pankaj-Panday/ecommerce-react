@@ -21,15 +21,15 @@ export const FilterContextProvider = ({ children }) => {
 	}
 
 	useEffect(() => {
-		dispatch({ type: "SORT_PRODUCTS", payload: products });
-	}, [data.sortByValue]);
-
-	useEffect(() => {
 		dispatch({
 			type: "LOAD_FILTERED_PRODUCTS",
 			payload: products,
 		});
 	}, [products]);
+
+	useEffect(() => {
+		dispatch({ type: "SORT_PRODUCTS", payload: products });
+	}, [data.sortByValue]);
 
 	return (
 		<FilterContext.Provider value={{ ...data, dispatch, sortProducts }}>
