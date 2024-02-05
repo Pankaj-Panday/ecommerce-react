@@ -43,7 +43,13 @@ const ProductsList = ({ products }) => {
 									/>
 								</div>
 							</div>
-							<button className={css.addToCartBtn}>Add to Cart</button>
+							{product.stock > 0 ? (
+								<button className={css.addToCartBtn}>Add to Cart</button>
+							) : (
+								<button className={css.outOfStockBtn} disabled>
+									Out of Stock
+								</button>
+							)}
 						</div>
 						<div>
 							{product?.discountPercent

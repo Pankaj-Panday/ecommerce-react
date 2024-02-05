@@ -31,6 +31,7 @@ const Product = () => {
 		shortDescription,
 		longDescription,
 		tags,
+		isWishlisted,
 	} = singleProduct;
 
 	useEffect(() => {
@@ -126,13 +127,21 @@ const Product = () => {
 									<div className={css.actionButtons}>
 										<QuantitySelector
 											quantity={quantity}
+											stock={stock}
 											onIncrement={incrementQuantity}
 											onDecrement={decrementQuantity}
 										/>
-										<button onClick={() => navigate("/cart")}>
+										<button
+											disabled={stock < 1}
+											onClick={() => navigate("/cart")}
+										>
 											Add to Cart
 										</button>
-										<button>Wishlist</button>
+										{isWishlisted ? (
+											<button className={css.isWishlisted}>Wishlisted</button>
+										) : (
+											<button>Wishlist</button>
+										)}
 									</div>
 									<hr className={css.horizontalLine} />
 									<div className={css.otherDetails}>
@@ -213,17 +222,17 @@ const Product = () => {
 	);
 };
 
-function QuantitySelector({ quantity, onIncrement, onDecrement }) {
+function QuantitySelector({ quantity, onIncrement, onDecrement, stock }) {
 	return (
-		<div>
-			<button className={css.decrementBtn} onClick={onDecrement}>
+		<button disabled={stock < 1}>
+			<span className={`${css.decrementBtn}`} onClick={onDecrement}>
 				-
-			</button>
-			<span className={css.quantity}>{quantity}</span>
-			<button className={css.incrementBtn} onClick={onIncrement}>
+			</span>
+			<span className={`${css.quantity} `}>{quantity}</span>
+			<span className={`${css.incrementBtn}`} onClick={onIncrement}>
 				+
-			</button>
-		</div>
+			</span>
+		</button>
 	);
 }
 

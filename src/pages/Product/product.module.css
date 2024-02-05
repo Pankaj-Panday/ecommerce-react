@@ -147,6 +147,17 @@
 
 .actionButtons button {
 	cursor: pointer;
+	position: relative;
+}
+
+.actionButtons .isWishlisted {
+	background-color: var(--clr-brand-primary);
+	color: #fff;
+	border-color: var(--clr-brand-primary);
+}
+
+.actionButtons button:disabled {
+	border: 1px solid #b7b7b7;
 }
 
 .quantity {
@@ -161,9 +172,11 @@
 	background-color: transparent;
 	border: none;
 	font: inherit;
+	padding: 0 0.5rem;
 	top: 0;
 	bottom: 0;
-	padding: 0 0.5rem;
+	display: grid;
+	place-items: center;
 }
 
 .decrementBtn {
@@ -185,6 +198,11 @@
 	color: #9f9f9f;
 	height: 2rem;
 	text-transform: capitalize;
+}
+
+.outOfStock {
+	color: rgb(247, 67, 47);
+	font-weight: var(--fw-medium);
 }
 
 .productTable td:nth-child(2) {

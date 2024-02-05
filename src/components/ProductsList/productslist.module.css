@@ -99,7 +99,8 @@
 	color: #b0b0b0;
 }
 
-.addToCartBtn {
+.addToCartBtn,
+.outOfStockBtn {
 	display: block;
 	line-height: 1.5;
 	font-size: 1rem;
@@ -107,15 +108,23 @@
 	color: #fff;
 	padding: 0.55rem 1.25rem;
 	min-width: 9.5rem;
-	background-color: var(--clr-brand-primary);
 	border: none;
 	cursor: pointer;
 	margin-top: 0.5rem;
 	border-radius: 5px;
 }
 
+.addToCartBtn {
+	background-color: var(--clr-brand-primary);
+}
+
 .addToCartBtn:active {
 	background-color: var(--clr-brand-primary-active);
+}
+
+.outOfStockBtn,
+.outOfStockBtn:disabled {
+	background-color: #cd3131;
 }
 
 .product > div:nth-of-type(2) {

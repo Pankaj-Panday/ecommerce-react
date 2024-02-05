@@ -16,6 +16,7 @@ const ProductCard = ({ product }) => {
 		isNew,
 		isWishlisted,
 		thumbnail,
+		stock,
 	} = product;
 	const effectivePrice = discountPercent
 		? Math.round((price * (100 - discountPercent)) / 100)
@@ -54,7 +55,13 @@ const ProductCard = ({ product }) => {
 						  )
 						: null}
 				</div>
-				<button className={css.addToCartBtn}>Add to Cart</button>
+				{stock > 0 ? (
+					<button className={css.addToCartBtn}>Add to Cart</button>
+				) : (
+					<button className={css.outOfStockBtn} disabled>
+						Out of Stock
+					</button>
+				)}
 			</div>
 		</div>
 	);
