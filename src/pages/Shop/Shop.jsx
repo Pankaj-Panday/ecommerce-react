@@ -14,7 +14,7 @@ import { BsViewList } from "react-icons/bs";
 const Shop = () => {
 	const { filteredProducts, gridView, dispatch, sortProducts } =
 		useFilterContext();
-	const [showFilter, setShowFilter] = useState(false);
+	const [showFilter, setShowFilter] = useState(true);
 	function setGridview(value) {
 		dispatch({ type: "SET_GRID_VIEW", value: value });
 	}
@@ -91,8 +91,29 @@ const Shop = () => {
 };
 
 const Filter = () => {
+	const {
+		filters: { searchText },
+		updateFilterValue,
+	} = useFilterContext();
 	return (
-		<div className={`${css.filterSection} mainContainer`}>filterSection</div>
+		<div className={`${css.filterSection} mainContainer`}>
+			<form
+				role="search"
+				onSubmit={(e) => {
+					e.preventDefault();
+				}}
+			>
+				<input
+					type="text"
+					name="searchText"
+					id="search"
+					placeholder="Search Product"
+					className={css.searchBar}
+					value={searchText}
+					onChange={updateFilterValue}
+				/>
+			</form>
+		</div>
 	);
 };
 

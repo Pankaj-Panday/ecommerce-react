@@ -7,7 +7,6 @@ import NavIcon from "../NavIcon/NavIcon.jsx";
 
 // Icons import
 import { FaUser } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 
 const Header = () => {
@@ -72,11 +71,6 @@ const Header = () => {
 							<li className={css.navlink} onClick={() => setMenuOpen(false)}>
 								<Link to="#">
 									<FaUser className={css.icon} />
-								</Link>
-							</li>
-							<li className={css.navlink} onClick={() => setMenuOpen(false)}>
-								<Link to="#">
-									<FaSearch className={css.icon} />
 								</Link>
 							</li>
 							<li className={css.navlink} onClick={() => setMenuOpen(false)}>

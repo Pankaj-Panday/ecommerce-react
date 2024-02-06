@@ -9,15 +9,23 @@ const initialData = {
 	allProducts: [],
 	gridView: true,
 	itemCount: 12,
-	sortByValue: "ascending",
+	sortByValue: "",
+	filters: {
+		searchText: "",
+	},
 };
 
 export const FilterContextProvider = ({ children }) => {
 	const { products } = useProductContext();
 	const [data, dispatch] = useReducer(reducer, initialData);
 
-	function sortProducts() {
-		dispatch({ type: "SET_SORTBY_VALUE" });
+	function sortProducts(event) {
+		dispatch({ type: "SET_SORTBY_VALUE", value: event.target.value });
+	}
+
+	function updateFilterValue(event) {
+		const { name, value } = event.target;
+		dispatch({ type: "SET_FILTER_VALUE", payload: { name, value } });
 	}
 
 	useEffect(() => {
@@ -28,11 +36,17 @@ export const FilterContextProvider = ({ children }) => {
 	}, [products]);
 
 	useEffect(() => {
-		dispatch({ type: "SORT_PRODUCTS", payload: products });
-	}, [data.sortByValue]);
+		dispatch({ type: "SHOW_SEARCHED_PRODUCTS" });
+	}, [data.filters.searchText, products]);
+
+	useEffect(() => {
+		dispatch({ type: "SORT_PRODUCTS" });
+	}, [data.sortByValue, products]);
 
 	return (
-		<FilterContext.Provider value={{ ...data, dispatch, sortProducts }}>
+		<FilterContext.Provider
+			value={{ ...data, dispatch, sortProducts, updateFilterValue }}
+		>
 			{children}
 		</FilterContext.Provider>
 	);

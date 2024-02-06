@@ -18,7 +18,7 @@
 
 .navContainer {
 	display: flex;
-	width: 70%;
+	width: 62%;
 	justify-content: space-between;
 	column-gap: 50px;
 }
@@ -28,7 +28,7 @@
 }
 
 .navbarSecondary {
-	width: 26%;
+	width: 15%;
 }
 
 .navListPrimary {
@@ -69,11 +69,8 @@
 }
 
 @media screen and (max-width: 1048px) {
-	.navContainer {
-		width: 67%;
-	}
 	.header {
-		width: calc(92%);
+		width: 92%;
 	}
 }
 

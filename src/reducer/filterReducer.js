@@ -12,34 +12,65 @@ const filterReducer = (data, action) => {
 				gridView: action.value,
 			};
 		case "SET_SORTBY_VALUE":
-			let sortByInputField = document.getElementById("sortBy");
-			let newSortByValue =
-				sortByInputField.options[sortByInputField.selectedIndex].value;
 			return {
 				...data,
-				sortByValue: newSortByValue,
+				sortByValue: action.value,
 			};
 		case "SORT_PRODUCTS":
-			let productsToSort = [...action.payload];
-			switch (data.sortByValue) {
-				case "ascending":
-					productsToSort.sort(ascendingByPrice);
-					break;
-				case "descending":
-					productsToSort.sort(descendingByPrice);
-					break;
-				case "a-z":
-					productsToSort.sort(ascendingByName);
-					break;
-				case "z-a":
-					productsToSort.sort(descendingByName);
-					break;
-				default:
-					break;
+			let productsToSort = [];
+			if (data.filters.searchText) {
+				productsToSort = [...data.filteredProducts];
+			} else {
+				productsToSort = [...data.allProducts];
 			}
+			function compareFunc(product1, product2) {
+				switch (data.sortByValue) {
+					case "ascending": {
+						const product1EffectivePrice =
+							((100 - product1.discountPercent) * product1.price) / 100;
+						const product2EffectivePrice =
+							((100 - product2.discountPercent) * product2.price) / 100;
+						return product1EffectivePrice - product2EffectivePrice;
+					}
+					case "descending": {
+						const product1EffectivePrice =
+							((100 - product1.discountPercent) * product1.price) / 100;
+						const product2EffectivePrice =
+							((100 - product2.discountPercent) * product2.price) / 100;
+						return product2EffectivePrice - product1EffectivePrice;
+					}
+					case "a-z":
+						return product1.name.localeCompare(product2.name);
+					case "z-a":
+						return product2.name.localeCompare(product1.name);
+					default:
+						break;
+				}
+			}
+			const sortedProducts = productsToSort.sort(compareFunc);
 			return {
 				...data,
-				filteredProducts: [...productsToSort],
+				filteredProducts: sortedProducts,
+			};
+
+		case "SET_FILTER_VALUE":
+			const { name, value } = action.payload;
+			return {
+				...data,
+				filters: {
+					...data.filters,
+					[name]: value,
+				},
+			};
+
+		case "SHOW_SEARCHED_PRODUCTS":
+			const { searchText } = data.filters;
+			const newFilteredProducts = data.allProducts.filter((product) => {
+				return product.name.toLowerCase().includes(searchText.toLowerCase());
+			});
+			return {
+				...data,
+				filteredProducts: newFilteredProducts,
 			};
 		case "CHANGE_ITEMS_COUNT":
 			return {
@@ -49,29 +80,5 @@ const filterReducer = (data, action) => {
 			break;
 	}
 };
-
-function ascendingByPrice(product1, product2) {
-	const product1EffectivePrice =
-		((100 - product1.discountPercent) * product1.price) / 100;
-	const product2EffectivePrice =
-		((100 - product2.discountPercent) * product2.price) / 100;
-	return product1EffectivePrice - product2EffectivePrice;
-}
-
-function descendingByPrice(product1, product2) {
-	const product1EffectivePrice =
-		((100 - product1.discountPercent) * product1.price) / 100;
-	const product2EffectivePrice =
-		((100 - product2.discountPercent) * product2.price) / 100;
-	return product2EffectivePrice - product1EffectivePrice;
-}
-
-function ascendingByName(product1, product2) {
-	return product1.name.localeCompare(product2.name);
-}
-
-function descendingByName(product1, product2) {
-	return product2.name.localeCompare(product1.name);
-}
 
 export default filterReducer;
