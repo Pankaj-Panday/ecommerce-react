@@ -12,6 +12,8 @@ const initialData = {
 	sortByValue: "",
 	filters: {
 		searchText: "",
+		category: "",
+		rating: -1,
 	},
 };
 
@@ -30,18 +32,15 @@ export const FilterContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		dispatch({
-			type: "LOAD_FILTERED_PRODUCTS",
+			type: "LOAD_ALL_PRODUCTS",
 			payload: products,
 		});
 	}, [products]);
 
 	useEffect(() => {
-		dispatch({ type: "SHOW_SEARCHED_PRODUCTS" });
-	}, [data.filters.searchText, products]);
-
-	useEffect(() => {
+		dispatch({ type: "SHOW_FILTERED_PRODUCTS" });
 		dispatch({ type: "SORT_PRODUCTS" });
-	}, [data.sortByValue, products]);
+	}, [data.sortByValue, products, data.filters]);
 
 	return (
 		<FilterContext.Provider

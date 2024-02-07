@@ -76,6 +76,13 @@
 	font-weight: var(--fw-medium);
 	color: #898989;
 	margin-bottom: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+.rating {
+	color: rgba(0, 0, 0, 0.659);
+	font-weight: var(--fw-normal);
+	font-size: 0.9rem;
 }
 
 .price {

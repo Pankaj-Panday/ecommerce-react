@@ -1,6 +1,6 @@
 const filterReducer = (data, action) => {
 	switch (action.type) {
-		case "LOAD_FILTERED_PRODUCTS":
+		case "LOAD_ALL_PRODUCTS":
 			return {
 				...data,
 				allProducts: [...action.payload],
@@ -16,12 +16,11 @@ const filterReducer = (data, action) => {
 				...data,
 				sortByValue: action.value,
 			};
-		case "SORT_PRODUCTS":
-			let productsToSort = [];
-			if (data.filters.searchText) {
+		case "SORT_PRODUCTS": {
+			let productsToSort = [...data.allProducts];
+			const { searchText, category, rating } = data.filters;
+			if (searchText || category || rating > -1) {
 				productsToSort = [...data.filteredProducts];
-			} else {
-				productsToSort = [...data.allProducts];
 			}
 			function compareFunc(product1, product2) {
 				switch (data.sortByValue) {
@@ -52,7 +51,7 @@ const filterReducer = (data, action) => {
 				...data,
 				filteredProducts: sortedProducts,
 			};
-
+		}
 		case "SET_FILTER_VALUE":
 			const { name, value } = action.payload;
 			return {
@@ -63,11 +62,24 @@ const filterReducer = (data, action) => {
 				},
 			};
 
-		case "SHOW_SEARCHED_PRODUCTS":
-			const { searchText } = data.filters;
-			const newFilteredProducts = data.allProducts.filter((product) => {
-				return product.name.toLowerCase().includes(searchText.toLowerCase());
-			});
+		case "SHOW_FILTERED_PRODUCTS":
+			const { searchText, category, rating } = data.filters;
+			let newFilteredProducts = [...data.allProducts];
+			if (searchText) {
+				newFilteredProducts = newFilteredProducts.filter((product) => {
+					return product.name.toLowerCase().includes(searchText.toLowerCase());
+				});
+			}
+			if (category && category.toLowerCase() !== "all") {
+				newFilteredProducts = newFilteredProducts.filter((product) => {
+					return product.category.toLowerCase() === category.toLowerCase();
+				});
+			}
+			if (rating) {
+				newFilteredProducts = newFilteredProducts.filter((product) => {
+					return product.rating >= parseInt(rating);
+				});
+			}
 			return {
 				...data,
 				filteredProducts: newFilteredProducts,

@@ -6,7 +6,7 @@ const Rating = ({ rating }) => {
 	const integerRating = Math.floor(rating);
 	const decimalRating = rating - integerRating;
 	return (
-		<div>
+		<span>
 			{Array.from({ length: 5 }, (elem, index) => {
 				return (
 					<span key={index} className={css.star}>
@@ -20,7 +20,7 @@ const Rating = ({ rating }) => {
 					</span>
 				);
 			})}
-		</div>
+		</span>
 	);
 };
 

@@ -5,6 +5,7 @@ import ProductsGrid from "../../components/ProductsGrid/ProductsGrid.jsx";
 import ProductsList from "../../components/ProductsList/ProductsList.jsx";
 import css from "./shop.module.css";
 import { useFilterContext } from "../../context/FilterContext.jsx";
+import Rating from "../../components/Rating/Rating.jsx";
 
 // icons
 import { LiaSlidersHSolid } from "react-icons/lia";
@@ -92,9 +93,21 @@ const Shop = () => {
 
 const Filter = () => {
 	const {
-		filters: { searchText },
+		filters: { searchText, rating },
 		updateFilterValue,
+		allProducts: products,
 	} = useFilterContext();
+
+	// Get data for each filters e.g category
+	function getFilterDataFor(property) {
+		const arrayOfData = products.map((product) => {
+			return product[property];
+		});
+		return ["All", ...new Set(arrayOfData)];
+	}
+
+	const productCategories = getFilterDataFor("category");
+
 	return (
 		<div className={`${css.filterSection} mainContainer`}>
 			<form
@@ -112,6 +125,45 @@ const Filter = () => {
 					value={searchText}
 					onChange={updateFilterValue}
 				/>
+				<h3>Categories</h3>
+				<select name="category" id="category" onChange={updateFilterValue}>
+					{productCategories.map((category, index) => {
+						return <option key={index}>{category}</option>;
+					})}
+				</select>
+				<h3>Rating</h3>
+				<div>
+					<label>
+						<input
+							type="radio"
+							name="rating"
+							value={4}
+							onChange={updateFilterValue}
+							checked={parseInt(rating) === 4}
+						/>
+						<Rating rating={4} /> (4 & above)
+					</label>
+					<label>
+						<input
+							type="radio"
+							name="rating"
+							value={3}
+							onChange={updateFilterValue}
+							checked={parseInt(rating) === 3}
+						/>
+						<Rating rating={3} /> (3 & above)
+					</label>
+					<label>
+						<input
+							type="radio"
+							name="rating"
+							value={-1}
+							onChange={updateFilterValue}
+							checked={parseInt(rating) === -1}
+						/>
+						Any
+					</label>
+				</div>
 			</form>
 		</div>
 	);

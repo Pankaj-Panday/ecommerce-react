@@ -12,6 +12,7 @@ const ProductCard = ({ product }) => {
 		name,
 		category,
 		price,
+		rating,
 		discountPercent,
 		isNew,
 		isWishlisted,
@@ -44,7 +45,10 @@ const ProductCard = ({ product }) => {
 				<h4 className={css.name}>
 					<NavLink to={`/product/${id}`}>{name.toUpperCase()}</NavLink>
 				</h4>
-				<p className={css.category}>{category}</p>
+				<p className={css.category}>
+					<span>{category}</span>
+					<span className={css.rating}>({rating})</span>
+				</p>
 				<div className={css.price}>
 					<FormatPrice className={css.effectivePrice} price={effectivePrice} />
 					{discountPercent
