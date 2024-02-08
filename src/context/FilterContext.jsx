@@ -12,8 +12,9 @@ const initialData = {
 	sortByValue: "",
 	filters: {
 		searchText: "",
-		category: "",
+		category: "all",
 		rating: -1,
+		color: "all",
 	},
 };
 

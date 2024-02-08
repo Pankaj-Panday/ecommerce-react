@@ -33,7 +33,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#FF5733", "#004080", "#8B4513"],
+		colors: ["#ff9f1a", "#18dcff", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -74,7 +74,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#7CFC00", "#8A2BE2"],
+		colors: ["#7d5fff", "#ff3838"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -115,7 +115,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#FFD700", "#8B4513", "#4682B4"],
+		colors: ["#18dcff", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -156,7 +156,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#2E8B57", "#8B008B", "#FF4500", "#00CED1"],
+		colors: ["#fff200", "#ff9f1a"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -197,7 +197,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#FF6347", "#008080"],
+		colors: ["#7d5fff", "#ff3838", "#ff9f1a", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -238,7 +238,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#800080", "#FFFF00"],
+		colors: ["#ff3838", "#ff9f1a", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -279,7 +279,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#4B0082", "#BDB76B", "#A52A2A"],
+		colors: ["#ff3838", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -320,7 +320,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#1E90FF", "#FF1493", "#32CD32", "#8B0000"],
+		colors: ["#18dcff", "#fff200", "#ff9f1a"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -361,7 +361,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#6A5ACD", "#8B4513"],
+		colors: ["#18dcff", "#ff9f1a"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -402,7 +402,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#00FF7F", "#8B008B", "#8B0000"],
+		colors: ["#ff9f1a", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -443,7 +443,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#7B68EE", "#FFD700", "#8B4513"],
+		colors: ["#ff9f1a", "#ff3838"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -484,7 +484,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#9370DB", "#00FA9A", "#FF8C00", "#4169E1"],
+		colors: ["#fff200", "#18dcff"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -525,7 +525,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#20B2AA", "#8A2BE2"],
+		colors: ["#fff200", "#ff3838", "#7d5fff"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -566,7 +566,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8B0000", "#00CED1"],
+		colors: ["#ff3838", "#ff9f1a"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -607,7 +607,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#2F4F4F", "#FF4500", "#87CEEB"],
+		colors: ["#ff9f1a", "#fff200", "#ff3838"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -648,7 +648,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#48D1CC", "#FF00FF", "#8B4513"],
+		colors: ["#ff9f1a", "#ff3838"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -689,7 +689,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#4682B4", "#B8860B", "#FF6347", "#32CD32"],
+		colors: ["#ff3838", "#ff9f1a", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -730,7 +730,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#800000", "#6A5ACD"],
+		colors: ["#fff200", "#ff3838"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -771,7 +771,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#D8BFD8", "#2F4F4F", "#8B008B"],
+		colors: ["#ff3838", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -812,7 +812,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8B4513", "#008080", "#FA8072"],
+		colors: ["#ff3838", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -853,7 +853,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#00FFFF", "#8B4513"],
+		colors: ["#7d5fff", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -894,7 +894,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#20B2AA", "#FF69B4", "#556B2F"],
+		colors: ["#ff9f1a", "#fff200", "#18dcff"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -935,7 +935,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8A2BE2", "#008000", "#CD853F", "#FF4500"],
+		colors: ["#fff200", "#ff9f1a"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -976,7 +976,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#2E8B57", "#FF8C00", "#8B4513"],
+		colors: ["#ff9f1a", "#7d5fff"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -1017,7 +1017,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#483D8B", "#FF4500", "#556B2F"],
+		colors: ["#ff3838", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -1058,7 +1058,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8B4513", "#000080"],
+		colors: ["#ff3838", "#ff9f1a", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -1099,7 +1099,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8B4513", "#FFD700", "#8A2BE2"],
+		colors: ["#7d5fff", "#ff9f1a", "#ff3838"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -1140,7 +1140,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8B008B", "#2F4F4F", "#32CD32"],
+		colors: ["#ff9f1a", "#7d5fff"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -1181,7 +1181,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#8B4513", "#48D1CC", "#8B0000"],
+		colors: ["#ff3838", "#fff200", "#ff9f1a"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],
@@ -1222,7 +1222,7 @@ const productsList = [
 				name: "Chair",
 			},
 		],
-		colors: ["#32CD32", "#8B0000"],
+		colors: ["#7d5fff", "#ff3838", "#fff200"],
 		shortDescription:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
 		tags: ["sofa", "chair", "home", "shop"],

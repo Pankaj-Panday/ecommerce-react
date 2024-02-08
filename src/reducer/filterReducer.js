@@ -63,7 +63,7 @@ const filterReducer = (data, action) => {
 			};
 
 		case "SHOW_FILTERED_PRODUCTS":
-			const { searchText, category, rating } = data.filters;
+			const { searchText, category, rating, color } = data.filters;
 			let newFilteredProducts = [...data.allProducts];
 			if (searchText) {
 				newFilteredProducts = newFilteredProducts.filter((product) => {
@@ -78,6 +78,11 @@ const filterReducer = (data, action) => {
 			if (rating) {
 				newFilteredProducts = newFilteredProducts.filter((product) => {
 					return product.rating >= parseInt(rating);
+				});
+			}
+			if (color.toLowerCase() !== "all") {
+				newFilteredProducts = newFilteredProducts.filter((product) => {
+					return product.colors.includes(color);
 				});
 			}
 			return {

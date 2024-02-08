@@ -93,20 +93,25 @@ const Shop = () => {
 
 const Filter = () => {
 	const {
-		filters: { searchText, rating },
+		filters: { searchText, rating, color },
 		updateFilterValue,
 		allProducts: products,
 	} = useFilterContext();
 
 	// Get data for each filters e.g category
 	function getFilterDataFor(property) {
-		const arrayOfData = products.map((product) => {
+		const arrayOfValues = products.map((product) => {
 			return product[property];
 		});
-		return ["All", ...new Set(arrayOfData)];
+		let filteredUniqueValues = [...new Set(arrayOfValues)];
+		if (property === "colors") {
+			filteredUniqueValues = [...new Set(arrayOfValues.flat())];
+		}
+		return ["All", ...filteredUniqueValues];
 	}
 
 	const productCategories = getFilterDataFor("category");
+	const productColors = getFilterDataFor("colors");
 
 	return (
 		<div className={`${css.filterSection} mainContainer`}>
@@ -163,6 +168,27 @@ const Filter = () => {
 						/>
 						Any
 					</label>
+				</div>
+				<h3>Colors</h3>
+				<div className={css.colorSelectContainer}>
+					{productColors.map((productColor, index) => {
+						return (
+							<button
+								key={index}
+								className={`${
+									productColor === "All" ? css.allColorBtn : css.colorBtn
+								} 
+									${productColor === color ? css.selected : null}
+								`}
+								style={{ backgroundColor: productColor }}
+								name="color"
+								value={productColor}
+								onClick={updateFilterValue}
+							>
+								{productColor === "All" ? "All" : null}{" "}
+							</button>
+						);
+					})}
 				</div>
 			</form>
 		</div>
