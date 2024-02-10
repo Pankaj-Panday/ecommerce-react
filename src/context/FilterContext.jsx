@@ -15,6 +15,9 @@ const initialData = {
 		category: "all",
 		rating: -1,
 		color: "all",
+		minPrice: 0,
+		maxPrice: 0,
+		price: 0,
 	},
 };
 
@@ -31,6 +34,10 @@ export const FilterContextProvider = ({ children }) => {
 		dispatch({ type: "SET_FILTER_VALUE", payload: { name, value } });
 	}
 
+	function clearFilters() {
+		dispatch({ type: "CLEAR_FILTERS" });
+	}
+
 	useEffect(() => {
 		dispatch({
 			type: "LOAD_ALL_PRODUCTS",
@@ -45,7 +52,13 @@ export const FilterContextProvider = ({ children }) => {
 
 	return (
 		<FilterContext.Provider
-			value={{ ...data, dispatch, sortProducts, updateFilterValue }}
+			value={{
+				...data,
+				dispatch,
+				sortProducts,
+				updateFilterValue,
+				clearFilters,
+			}}
 		>
 			{children}
 		</FilterContext.Provider>

@@ -85,7 +85,7 @@ const productsList = [
 		id: 3,
 		name: "Mystic Marvel",
 		category: "Table",
-		price: 5150,
+		price: 515,
 		discountPercent: 15,
 		featured: true,
 		isNew: true,

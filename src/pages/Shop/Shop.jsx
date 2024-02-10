@@ -6,6 +6,7 @@ import ProductsList from "../../components/ProductsList/ProductsList.jsx";
 import css from "./shop.module.css";
 import { useFilterContext } from "../../context/FilterContext.jsx";
 import Rating from "../../components/Rating/Rating.jsx";
+import FormatPrice from "../../helper/FormatPrice.jsx";
 
 // icons
 import { LiaSlidersHSolid } from "react-icons/lia";
@@ -66,7 +67,7 @@ const Shop = () => {
 								name="sort"
 								id="sortBy"
 								defaultValue={""}
-								onClick={sortProducts}
+								onChange={sortProducts}
 							>
 								<option>--select-an-option--</option>
 								<option value="ascending">Price: Low to High</option>
@@ -93,11 +94,11 @@ const Shop = () => {
 
 const Filter = () => {
 	const {
-		filters: { searchText, rating, color },
+		filters: { searchText, rating, color, minPrice, maxPrice, price },
 		updateFilterValue,
+		clearFilters,
 		allProducts: products,
 	} = useFilterContext();
-
 	// Get data for each filters e.g category
 	function getFilterDataFor(property) {
 		const arrayOfValues = products.map((product) => {
@@ -190,6 +191,24 @@ const Filter = () => {
 						);
 					})}
 				</div>
+				<h3>
+					Price (<FormatPrice price={minPrice} /> -{" "}
+					<FormatPrice price={maxPrice} />)
+				</h3>
+				<p>
+					<FormatPrice price={price} className={css.priceTag} />
+				</p>
+
+				<input
+					type="range"
+					name="price"
+					value={price}
+					onChange={updateFilterValue}
+					min={minPrice}
+					max={maxPrice}
+					step={500}
+				/>
+				<button onClick={clearFilters}>Clear Filters</button>
 			</form>
 		</div>
 	);
