@@ -125,9 +125,10 @@ const filterReducer = (data, action) => {
 					price: data.filters.maxPrice,
 				},
 			};
-		case "CHANGE_ITEMS_COUNT":
+		case "UPDATE_ITEM_COUNT":
 			return {
 				...data,
+				itemCount: action.value,
 			};
 
 		default:

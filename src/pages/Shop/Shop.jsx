@@ -14,14 +14,21 @@ import { HiViewGrid } from "react-icons/hi";
 import { BsViewList } from "react-icons/bs";
 
 const Shop = () => {
-	const { filteredProducts, gridView, dispatch, sortProducts } =
-		useFilterContext();
+	const {
+		filteredProducts,
+		gridView,
+		dispatch,
+		sortProducts,
+		itemCount,
+		updateItemCount,
+	} = useFilterContext();
 	const [showFilter, setShowFilter] = useState(true);
 	function setGridview(value) {
 		dispatch({ type: "SET_GRID_VIEW", value: value });
 	}
 	const totalProductsFound = filteredProducts.length;
-	const productShown = filteredProducts.length; // may change once pagination kind of thing happens
+	const productShown =
+		itemCount < totalProductsFound ? itemCount : totalProductsFound; // may change once pagination kind of thing happens
 	return (
 		<main>
 			<SecondaryHeader />
@@ -29,7 +36,7 @@ const Shop = () => {
 				<div className="mainContainer">
 					<div className={css.filterContainer}>
 						<div
-							className={css.filterBtn}
+							className={`${css.filterBtn} ${showFilter ? css.active : null}`}
 							onClick={() => setShowFilter(!showFilter)}
 						>
 							<LiaSlidersHSolid className={css.icon} /> Filter
@@ -53,7 +60,12 @@ const Shop = () => {
 					<div className={css.sortContainer}>
 						<form className={css.dropDown}>
 							<label htmlFor="itemCount">Show</label>
-							<select name="itemCount" id="itemCount">
+							<select
+								name="itemCount"
+								id="itemCount"
+								value={itemCount}
+								onChange={updateItemCount}
+							>
 								<option value="4">4</option>
 								<option value="8">8</option>
 								<option value="12">12</option>
@@ -69,7 +81,7 @@ const Shop = () => {
 								defaultValue={""}
 								onChange={sortProducts}
 							>
-								<option>--select-an-option--</option>
+								<option>--Select--</option>
 								<option value="ascending">Price: Low to High</option>
 								<option value="descending">Price: High to Low</option>
 								<option value="a-z">Alphabet: A-Z</option>
@@ -81,10 +93,14 @@ const Shop = () => {
 			</section>
 			{showFilter && <Filter />}
 			<div className="mainContainer">
-				{gridView ? (
-					<ProductsGrid products={filteredProducts} />
+				{totalProductsFound <= 0 ? (
+					<p className={css.noProducts}>
+						No Products Found. Try changing the filters.
+					</p>
+				) : gridView ? (
+					<ProductsGrid products={filteredProducts.slice(0, itemCount)} />
 				) : (
-					<ProductsList products={filteredProducts} />
+					<ProductsList products={filteredProducts.slice(0, itemCount)} />
 				)}
 			</div>
 			<SecondaryFooter />
@@ -94,7 +110,7 @@ const Shop = () => {
 
 const Filter = () => {
 	const {
-		filters: { searchText, rating, color, minPrice, maxPrice, price },
+		filters: { searchText, rating, color, category, minPrice, maxPrice, price },
 		updateFilterValue,
 		clearFilters,
 		allProducts: products,
@@ -122,6 +138,100 @@ const Filter = () => {
 					e.preventDefault();
 				}}
 			>
+				<div className={css.innerFilterContainer}>
+					<h3>Categories</h3>
+					<select
+						className={css.categoryDropdown}
+						name="category"
+						id="category"
+						value={category}
+						onChange={updateFilterValue}
+					>
+						{productCategories.map((category, index) => {
+							return <option key={index}>{category}</option>;
+						})}
+					</select>
+				</div>
+				<div className={css.innerFilterContainer}>
+					<h3>Rating</h3>
+					<div className={css.ratingSelectContainer}>
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								value={4}
+								onChange={updateFilterValue}
+								checked={parseInt(rating) === 4}
+							/>
+							<Rating rating={4} /> (4+)
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								value={3}
+								onChange={updateFilterValue}
+								checked={parseInt(rating) === 3}
+							/>
+							<Rating rating={3} /> (3+)
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="rating"
+								value={-1}
+								onChange={updateFilterValue}
+								checked={parseInt(rating) === -1}
+							/>
+							Any
+						</label>
+					</div>
+				</div>
+				<div className={css.innerFilterContainer}>
+					<h3>Colors</h3>
+					<div className={css.colorSelectContainer}>
+						{productColors.map((productColor, index) => {
+							return (
+								<button
+									key={index}
+									className={`${
+										productColor === "All" ? css.allColorBtn : css.colorBtn
+									} 
+									${productColor === color ? css.selected : null}
+								`}
+									style={{ backgroundColor: productColor }}
+									name="color"
+									value={productColor}
+									onClick={updateFilterValue}
+								>
+									{productColor === "All" ? "All" : null}{" "}
+								</button>
+							);
+						})}
+					</div>
+				</div>
+				<div className={css.innerFilterContainer}>
+					<h3>
+						Price (<FormatPrice price={minPrice} /> -{" "}
+						<FormatPrice price={maxPrice} />)
+					</h3>
+					<p>
+						<FormatPrice price={price} className={css.priceTag} />
+					</p>
+
+					<input
+						type="range"
+						name="price"
+						className={css.priceInput}
+						value={price}
+						onChange={updateFilterValue}
+						min={minPrice}
+						max={maxPrice}
+						step={500}
+					/>
+				</div>
+			</form>
+			<form onSubmit={(e) => e.preventDefault()}>
 				<input
 					type="text"
 					name="searchText"
@@ -131,84 +241,9 @@ const Filter = () => {
 					value={searchText}
 					onChange={updateFilterValue}
 				/>
-				<h3>Categories</h3>
-				<select name="category" id="category" onChange={updateFilterValue}>
-					{productCategories.map((category, index) => {
-						return <option key={index}>{category}</option>;
-					})}
-				</select>
-				<h3>Rating</h3>
-				<div>
-					<label>
-						<input
-							type="radio"
-							name="rating"
-							value={4}
-							onChange={updateFilterValue}
-							checked={parseInt(rating) === 4}
-						/>
-						<Rating rating={4} /> (4 & above)
-					</label>
-					<label>
-						<input
-							type="radio"
-							name="rating"
-							value={3}
-							onChange={updateFilterValue}
-							checked={parseInt(rating) === 3}
-						/>
-						<Rating rating={3} /> (3 & above)
-					</label>
-					<label>
-						<input
-							type="radio"
-							name="rating"
-							value={-1}
-							onChange={updateFilterValue}
-							checked={parseInt(rating) === -1}
-						/>
-						Any
-					</label>
-				</div>
-				<h3>Colors</h3>
-				<div className={css.colorSelectContainer}>
-					{productColors.map((productColor, index) => {
-						return (
-							<button
-								key={index}
-								className={`${
-									productColor === "All" ? css.allColorBtn : css.colorBtn
-								} 
-									${productColor === color ? css.selected : null}
-								`}
-								style={{ backgroundColor: productColor }}
-								name="color"
-								value={productColor}
-								onClick={updateFilterValue}
-							>
-								{productColor === "All" ? "All" : null}{" "}
-							</button>
-						);
-					})}
-				</div>
-				<h3>
-					Price (<FormatPrice price={minPrice} /> -{" "}
-					<FormatPrice price={maxPrice} />)
-				</h3>
-				<p>
-					<FormatPrice price={price} className={css.priceTag} />
-				</p>
-
-				<input
-					type="range"
-					name="price"
-					value={price}
-					onChange={updateFilterValue}
-					min={minPrice}
-					max={maxPrice}
-					step={500}
-				/>
-				<button onClick={clearFilters}>Clear Filters</button>
+				<button onClick={clearFilters} className={css.clearBtn}>
+					Reset filters
+				</button>
 			</form>
 		</div>
 	);
