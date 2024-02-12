@@ -22,7 +22,7 @@ const Shop = () => {
 		itemCount,
 		updateItemCount,
 	} = useFilterContext();
-	const [showFilter, setShowFilter] = useState(true);
+	const [showFilter, setShowFilter] = useState(false);
 	function setGridview(value) {
 		dispatch({ type: "SET_GRID_VIEW", value: value });
 	}

@@ -11,10 +11,12 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import RelatedProducts from "../../components/RelatedProducts/RelatedProducts.jsx";
+import { useCartContext } from "../../context/CartContext.jsx";
 
 const Product = () => {
 	const { id } = useParams();
 	const { getSingleProduct, isLoading, singleProduct } = useProductContext();
+	const { addToCart } = useCartContext();
 
 	const {
 		id: productId,
@@ -39,8 +41,8 @@ const Product = () => {
 	}, [id]);
 
 	const effectivePrice = ((100 - discountPercent) / 100) * price;
-	const [selectedColorIndex, setSelectedColorIndex] = useState(0);
-	const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
+	const [selectedColorIndex, setselectedColorIndex] = useState(0);
+	const [selectedSizeIndex, setselectedSizeIndex] = useState(0);
 	const [quantity, setQuantity] = useState(1);
 
 	const navigate = useNavigate();
@@ -99,7 +101,7 @@ const Product = () => {
 											return (
 												<button
 													key={index}
-													onClick={() => setSelectedSizeIndex(index)}
+													onClick={() => setselectedSizeIndex(index)}
 													className={
 														selectedSizeIndex === index ? css.selected : null
 													}
@@ -119,7 +121,7 @@ const Product = () => {
 													className={
 														selectedColorIndex === index ? css.selected : null
 													}
-													onClick={() => setSelectedColorIndex(index)}
+													onClick={() => setselectedColorIndex(index)}
 												></button>
 											);
 										})}
@@ -133,7 +135,17 @@ const Product = () => {
 										/>
 										<button
 											disabled={stock < 1}
-											onClick={() => navigate("/cart")}
+											onClick={() => {
+												navigate("/cart");
+												addToCart(
+													id,
+													colors[selectedColorIndex],
+													sizes[selectedSizeIndex],
+													quantity,
+													effectivePrice,
+													singleProduct
+												);
+											}}
 										>
 											Add to Cart
 										</button>
@@ -222,9 +234,9 @@ const Product = () => {
 	);
 };
 
-function QuantitySelector({ quantity, onIncrement, onDecrement, stock }) {
+const QuantitySelector = ({ quantity, onIncrement, onDecrement, stock }) => {
 	return (
-		<button disabled={stock < 1}>
+		<button disabled={stock < 1} className={css.quantitySelector}>
 			<span className={`${css.decrementBtn}`} onClick={onDecrement}>
 				-
 			</span>
@@ -234,6 +246,6 @@ function QuantitySelector({ quantity, onIncrement, onDecrement, stock }) {
 			</span>
 		</button>
 	);
-}
+};
 
 export default Product;

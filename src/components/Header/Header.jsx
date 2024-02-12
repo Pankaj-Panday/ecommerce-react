@@ -79,7 +79,7 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className={css.navlink} onClick={() => setMenuOpen(false)}>
-								<Link to="#">
+								<Link to="/cart">
 									<Cart items={9} />
 								</Link>
 							</li>

@@ -147,17 +147,10 @@
 
 .actionButtons button {
 	cursor: pointer;
+}
+
+.quantitySelector {
 	position: relative;
-}
-
-.actionButtons .isWishlisted {
-	background-color: var(--clr-brand-primary);
-	color: #fff;
-	border-color: var(--clr-brand-primary);
-}
-
-.actionButtons button:disabled {
-	border: 1px solid #b7b7b7;
 }
 
 .quantity {
@@ -185,6 +178,16 @@
 
 .incrementBtn {
 	right: 0;
+}
+
+.actionButtons .isWishlisted {
+	background-color: var(--clr-brand-primary);
+	color: #fff;
+	border-color: var(--clr-brand-primary);
+}
+
+.actionButtons button:disabled {
+	border: 1px solid #b7b7b7;
 }
 
 .horizontalLine {
