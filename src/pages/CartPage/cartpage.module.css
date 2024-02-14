@@ -14,17 +14,13 @@
 	width: 100%;
 }
 
-.titles,
-.itemContainer {
+.titles {
+	background-color: #f9f1e7;
+	padding: 1rem 0;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr) 0.5fr;
 	place-items: center;
 	min-width: 21rem;
-}
-
-.titles {
-	background-color: #f9f1e7;
-	padding: 1rem 0;
 }
 
 .title {
@@ -32,95 +28,16 @@
 	font-size: 1rem;
 }
 
-.itemContainer {
-	justify-items: center;
-	align-items: center;
-	margin-top: 1.5rem;
-}
-
-.nameContainer {
-	display: flex;
-	align-items: start;
-	flex-wrap: wrap;
-	gap: 5%;
-}
-
-.nameContainer > div {
-	width: 50%;
-}
-
-.nameContainer .selectedSize {
-	text-transform: uppercase;
-	height: 1rem;
-	width: 1rem;
-	font-size: 0.7rem;
-	background-color: #f9f1e7;
-	border: transparent;
-	border-radius: 3px;
-}
-
-.nameContainer .selectedColor {
-	vertical-align: middle;
-	border-radius: 50%;
-	height: 1rem;
-	width: 1rem;
-	margin-right: 0.5rem;
-	border: transparent;
-}
-
-.image {
-	aspect-ratio: 1/1;
-	border-radius: 0.625rem;
-	overflow: hidden;
-	width: 40%;
-}
-
-.image img {
-	vertical-align: middle;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.lightText {
-	color: #9f9f9f;
-}
-
-.quantitySelector {
-	position: relative;
-	display: flex;
-	align-items: center;
-	padding: 0 0.3rem;
-	background-color: transparent;
+.clearBtn {
+	padding: 0.7rem 2rem;
 	border: none;
-}
-
-.quantity {
-	display: inline-block;
-	min-width: 2rem;
-	margin: 0 0.3rem;
-	font-size: 1rem;
-	border: 1px solid #9f9f9f;
-	padding: 0.25rem 0.5rem;
-	border-radius: 5px;
-}
-
-.incrementBtn,
-.decrementBtn {
+	background: var(--clr-brand-primary);
+	color: #fff;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	margin-top: 2rem;
 	cursor: pointer;
-	font-size: 1.5rem;
-}
-
-.deleteBtn {
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-}
-
-.deleteBtn svg {
-	font-size: 1.5rem;
-	vertical-align: middle;
-	color: var(--clr-brand-primary);
 }
 
 .priceContainer {
@@ -191,32 +108,10 @@
 	.checkout {
 		width: 40%;
 	}
-	.titles,
-	.itemContainer {
-		grid-template-columns: repeat(3, 1fr) minmax(1.5rem, 0.3fr);
-	}
 	.hide:not(.hide.lightText) {
 		display: none;
 	}
-}
-
-@media (width < 440px) {
-	.nameContainer {
-		justify-content: center;
-		align-items: center;
-		flex-wrap: nowrap;
-	}
-	.nameContainer > div {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		width: unset;
-	}
-	.image {
-		width: 50%;
-		min-width: 2.5rem;
-	}
-	.hide {
-		display: none;
+	.titles {
+		grid-template-columns: repeat(3, 1fr) minmax(1.5rem, 0.3fr);
 	}
 }

@@ -6,11 +6,17 @@ import css from "./cartpage.module.css";
 
 import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
-import { MdDelete } from "react-icons/md";
+
+import CartItem from "../../components/CartItem/CartItem.jsx";
 
 const CartPage = () => {
-	const { cartItems, totalPrice, totalItems, shippingCharge } =
-		useCartContext();
+	const {
+		cartItems,
+		totalPrice,
+		totalItems,
+		shippingCharge,
+		clearAllItemsFromCart,
+	} = useCartContext();
 	const cartEmpty = cartItems.length === 0;
 
 	return (
@@ -28,46 +34,21 @@ const CartPage = () => {
 						{cartEmpty ? (
 							<div className={css.emptyCart}>No Items in Cart</div>
 						) : (
-							cartItems.map((item) => {
-								return (
-									<div key={item.id} className={css.itemContainer}>
-										<div className={css.nameContainer}>
-											<figure className={css.image}>
-												<img src={item.image} alt={item.name} />
-											</figure>
-											<div>
-												<p className={`${css.lightText} ${css.hide}`}>
-													{item.name}
-												</p>
-												<button
-													style={{ background: item.color }}
-													className={css.selectedColor}
-												></button>
-												<button className={css.selectedSize}>
-													{item.size}
-												</button>
-											</div>
-										</div>
-										<p className={css.lightText}>
-											<FormatPrice price={item.price} />
-										</p>
-										<button className={css.quantitySelector}>
-											<span className={css.decrementBtn}>-</span>
-											<span className={css.quantity}>{item.quantity}</span>
-											<span className={css.incrementBtn}>+</span>
-										</button>
-										<p className={css.hide}>
-											<FormatPrice price={2500000} />
-										</p>
-										<button className={css.deleteBtn}>
-											<MdDelete />
-										</button>
-									</div>
-								);
-							})
+							<>
+								{cartItems.map((item) => {
+									return <CartItem key={item.id} {...item} />;
+								})}
+								<hr />
+								<button
+									className={css.clearBtn}
+									onClick={clearAllItemsFromCart}
+								>
+									Clear All
+								</button>
+							</>
 						)}
 					</section>
-					{!cartEmpty && (
+					{
 						<section className={css.priceContainer}>
 							<h3 className={css.heading}>Cart Total</h3>
 							<div>
@@ -94,7 +75,7 @@ const CartPage = () => {
 								Check out
 							</Link>
 						</section>
-					)}
+					}
 				</section>
 			</main>
 			<SecondaryFooter />
