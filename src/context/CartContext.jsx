@@ -5,6 +5,7 @@ const CartContext = createContext({});
 
 function getCartItemsFromLocalStorage() {
 	const items = localStorage.getItem("cartItems");
+	console.log(items);
 	if (items) {
 		return JSON.parse(items);
 	} else {
@@ -26,6 +27,7 @@ const CartContextProvider = ({ children }) => {
 		selectedColor,
 		selectedSize,
 		quantity,
+		stock,
 		effectivePrice,
 		product
 	) {
@@ -36,6 +38,7 @@ const CartContextProvider = ({ children }) => {
 				selectedColor,
 				selectedSize,
 				quantity,
+				stock,
 				effectivePrice,
 				product,
 			},
@@ -50,13 +53,28 @@ const CartContextProvider = ({ children }) => {
 		dispatch({ type: "CLEAR_CART" });
 	}
 
+	function incrementQuantity(id) {
+		dispatch({ type: "INCREMENT_QUANTITY", payload: id });
+	}
+
+	function decrementQuantity(id) {
+		dispatch({ type: "DECREMENT_QUANTITY", payload: id });
+	}
+
 	useEffect(() => {
 		localStorage.setItem("cartItems", JSON.stringify(data.cartItems));
 	}, [data.cartItems]);
 
 	return (
 		<CartContext.Provider
-			value={{ ...data, addToCart, removeItemFromCart, clearAllItemsFromCart }}
+			value={{
+				...data,
+				addToCart,
+				removeItemFromCart,
+				clearAllItemsFromCart,
+				incrementQuantity,
+				decrementQuantity,
+			}}
 		>
 			{children}
 		</CartContext.Provider>

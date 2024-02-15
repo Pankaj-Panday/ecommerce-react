@@ -17,6 +17,7 @@ const CartPage = () => {
 		shippingCharge,
 		clearAllItemsFromCart,
 	} = useCartContext();
+
 	const cartEmpty = cartItems.length === 0;
 
 	return (

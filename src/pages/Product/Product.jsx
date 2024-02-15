@@ -142,6 +142,7 @@ const Product = () => {
 													colors[selectedColorIndex],
 													sizes[selectedSizeIndex],
 													quantity,
+													stock,
 													effectivePrice,
 													singleProduct
 												);
