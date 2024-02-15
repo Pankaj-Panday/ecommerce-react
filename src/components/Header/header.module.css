@@ -10,16 +10,30 @@
 	height: var(--header-height);
 	margin: 0 auto;
 	max-width: 1280px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
+	-webkit-column-gap: 50px;
+	-moz-column-gap: 50px;
 	column-gap: 50px;
 }
 
 .navContainer {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 62%;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
+	-webkit-column-gap: 50px;
+	-moz-column-gap: 50px;
 	column-gap: 50px;
 }
 
@@ -32,13 +46,21 @@
 }
 
 .navListPrimary {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 	gap: 30px;
 }
 
 .navListSecondary {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 	gap: 15px;
 }
@@ -89,25 +111,45 @@
 		width: 100vw;
 		background: #ffffff;
 		inset: 0 100% 0 0;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
 		flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
 		align-items: center;
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
 		justify-content: flex-start;
 		row-gap: 30px;
 		padding-top: calc(var(--header-height) + 30px);
 		overflow: scroll;
+		-webkit-transform: translateX(100%);
+		-ms-transform: translateX(100%);
 		transform: translateX(100%);
+		-webkit-transition: -webkit-transform 300ms ease-in-out;
+		transition: -webkit-transform 300ms ease-in-out;
+		-o-transition: transform 300ms ease-in-out;
 		transition: transform 300ms ease-in-out;
+		transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 	}
 
 	.navContainer.open {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
 		transform: translateX(0);
 	}
 
 	.navbarPrimary {
+		-webkit-box-ordinal-group: 2;
+		-ms-flex-order: 1;
 		order: 1;
 	}
 
 	.navListPrimary {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 
