@@ -47,7 +47,11 @@ const ProductCard = ({ product }) => {
 				</h4>
 				<p className={css.category}>
 					<span>{category}</span>
-					<span className={css.rating}>({rating})</span>
+					{rating > 0 ? (
+						<span className={css.rating}>({product.rating})</span>
+					) : (
+						<span className={css.rating}>No rating</span>
+					)}
 				</p>
 				<div className={css.price}>
 					<FormatPrice className={css.effectivePrice} price={effectivePrice} />
@@ -59,13 +63,6 @@ const ProductCard = ({ product }) => {
 						  )
 						: null}
 				</div>
-				{stock > 0 ? (
-					<button className={css.addToCartBtn}>Add to Cart</button>
-				) : (
-					<button className={css.outOfStockBtn} disabled>
-						Out of Stock
-					</button>
-				)}
 			</div>
 		</div>
 	);

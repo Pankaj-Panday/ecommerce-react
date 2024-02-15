@@ -79,6 +79,13 @@
 	margin-bottom: 0.5rem;
 }
 
+.rating {
+	color: rgba(0, 0, 0, 0.659);
+	font-weight: var(--fw-normal);
+	font-size: 0.9rem;
+	margin-bottom: 0.5rem;
+}
+
 .price {
 	display: flex;
 	flex-direction: column;
@@ -97,34 +104,6 @@
 	font-size: 1rem;
 	font-weight: var(--fw-normal);
 	color: #b0b0b0;
-}
-
-.addToCartBtn,
-.outOfStockBtn {
-	display: block;
-	line-height: 1.5;
-	font-size: 1rem;
-	font-weight: var(--fw-semi-bold);
-	color: #fff;
-	padding: 0.55rem 1.25rem;
-	min-width: 9.5rem;
-	border: none;
-	cursor: pointer;
-	margin-top: 0.5rem;
-	border-radius: 5px;
-}
-
-.addToCartBtn {
-	background-color: var(--clr-brand-primary);
-}
-
-.addToCartBtn:active {
-	background-color: var(--clr-brand-primary-active);
-}
-
-.outOfStockBtn,
-.outOfStockBtn:disabled {
-	background-color: #cd3131;
 }
 
 .product > div:nth-of-type(2) {

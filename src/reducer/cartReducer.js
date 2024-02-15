@@ -53,7 +53,6 @@ const cartReducer = (data, action) => {
 			const itemIdtoUpdate = action.payload;
 			const newCartItems = data.cartItems.map((item) => {
 				if (item.id === itemIdtoUpdate) {
-					console.log(item.quantity, item.stock);
 					return {
 						...item,
 						quantity:
@@ -72,7 +71,6 @@ const cartReducer = (data, action) => {
 			const itemIdtoUpdate = action.payload;
 			const newCartItems = data.cartItems.map((item) => {
 				if (item.id === itemIdtoUpdate) {
-					console.log(item.quantity, item.stock);
 					return {
 						...item,
 						quantity: item.quantity <= 1 ? 1 : item.quantity - 1,
@@ -100,6 +98,28 @@ const cartReducer = (data, action) => {
 				...data,
 				cartItems: [],
 			};
+		case "CALCULATE_TOTALS": {
+			const { totalItems, totalPrice } = data.cartItems.reduce(
+				(total, item) => {
+					return {
+						totalItems: total.totalItems + item.quantity,
+						totalPrice: total.totalPrice + item.price * item.quantity,
+					};
+				},
+				{
+					totalItems: 0,
+					totalPrice: 0,
+				}
+			);
+			const shippingCharge =
+				totalPrice > 0 ? Math.min(50 + 0.01 * totalPrice, 200) : 0;
+			return {
+				...data,
+				totalItems: totalItems,
+				totalPrice: totalPrice,
+				shippingCharge: shippingCharge,
+			};
+		}
 	}
 };
 

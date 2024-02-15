@@ -10,13 +10,8 @@ import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem.jsx";
 
 const CartPage = () => {
-	const {
-		cartItems,
-		totalPrice,
-		totalItems,
-		shippingCharge,
-		clearAllItemsFromCart,
-	} = useCartContext();
+	const { cartItems, totalPrice, shippingCharge, clearAllItemsFromCart } =
+		useCartContext();
 
 	const cartEmpty = cartItems.length === 0;
 
@@ -56,19 +51,19 @@ const CartPage = () => {
 								<div className={css.subheadingContainer}>
 									<h4>Subtotal:</h4>
 									<p>
-										<FormatPrice price={15000} />
+										<FormatPrice price={totalPrice} />
 									</p>
 								</div>
 								<div className={css.subheadingContainer}>
 									<h4>Shipping:</h4>
 									<p>
-										<FormatPrice price={50} />
+										<FormatPrice price={shippingCharge} />
 									</p>
 								</div>
 								<div className={css.subheadingContainer}>
 									<h4>Total:</h4>
 									<p className={css.totalPrice}>
-										<FormatPrice price={15050} />
+										<FormatPrice price={totalPrice + shippingCharge} />
 									</p>
 								</div>
 							</div>

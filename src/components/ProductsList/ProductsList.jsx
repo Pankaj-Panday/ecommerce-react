@@ -29,6 +29,11 @@ const ProductsList = ({ products }) => {
 									</Link>
 								</h4>
 								<p className={css.category}>{product.category}</p>
+								{product.rating > 0 ? (
+									<p className={css.rating}>({product.rating})</p>
+								) : (
+									<p className={css.rating}>No rating</p>
+								)}
 								<div className={css.price}>
 									{product?.discountPercent
 										? product.discountPercent !== 0 && (
@@ -43,13 +48,6 @@ const ProductsList = ({ products }) => {
 									/>
 								</div>
 							</div>
-							{product.stock > 0 ? (
-								<button className={css.addToCartBtn}>Add to Cart</button>
-							) : (
-								<button className={css.outOfStockBtn} disabled>
-									Out of Stock
-								</button>
-							)}
 						</div>
 						<div>
 							{product?.discountPercent

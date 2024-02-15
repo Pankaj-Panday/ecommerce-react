@@ -62,6 +62,7 @@ const CartContextProvider = ({ children }) => {
 	}
 
 	useEffect(() => {
+		dispatch({ type: "CALCULATE_TOTALS" });
 		localStorage.setItem("cartItems", JSON.stringify(data.cartItems));
 	}, [data.cartItems]);
 
