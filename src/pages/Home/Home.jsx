@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import css from "./home.module.css";
-import ImageSlider from "../../components/ImageSlider/ImageSlider";
-import ImageGallery from "../../components/imageGallery/ImageGallery";
+import ImageSlider from "../../components/ImageSlider/ImageSlider.jsx";
+import ImageGallery from "../../components/imageGallery/ImageGallery.jsx";
 import ProductsGrid from "../../components/ProductsGrid/ProductsGrid.jsx";
 
 // Data
