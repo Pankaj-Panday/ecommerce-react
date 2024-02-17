@@ -7,13 +7,16 @@ import "./index.css";
 import { AppProvider } from "./context/ProductContext";
 import { FilterContextProvider } from "./context/FilterContext";
 import { CartContextProvider } from "./context/CartContext";
+import { WishlistContextProvider } from "./context/WishlistContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<AppProvider>
 			<FilterContextProvider>
 				<CartContextProvider>
-					<App />
+					<WishlistContextProvider>
+						<App />
+					</WishlistContextProvider>
 				</CartContextProvider>
 			</FilterContextProvider>
 		</AppProvider>
