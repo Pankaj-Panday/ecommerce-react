@@ -12,11 +12,14 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import RelatedProducts from "../../components/RelatedProducts/RelatedProducts.jsx";
 import { useCartContext } from "../../context/CartContext.jsx";
+import { useWishlistContext } from "../../context/WishlistContext.jsx";
 
 const Product = () => {
 	const { id } = useParams();
 	const { getSingleProduct, isLoading, singleProduct } = useProductContext();
 	const { addToCart } = useCartContext();
+	const { addToWishlist, isWishlisted, removeFromWishlist } =
+		useWishlistContext();
 
 	const {
 		id: productId,
@@ -33,7 +36,6 @@ const Product = () => {
 		shortDescription,
 		longDescription,
 		tags,
-		isWishlisted,
 	} = singleProduct;
 
 	useEffect(() => {
@@ -150,10 +152,24 @@ const Product = () => {
 										>
 											Add to Cart
 										</button>
-										{isWishlisted ? (
-											<button className={css.isWishlisted}>Wishlisted</button>
+										{isWishlisted(productId) ? (
+											<button
+												className={css.isWishlisted}
+												onClick={() => {
+													removeFromWishlist(productId);
+												}}
+											>
+												Wishlisted
+											</button>
 										) : (
-											<button>Wishlist</button>
+											<button
+												className={css.wishlistBtn}
+												onClick={() => {
+													addToWishlist(singleProduct);
+												}}
+											>
+												Wishlist
+											</button>
 										)}
 									</div>
 									<hr className={css.horizontalLine} />

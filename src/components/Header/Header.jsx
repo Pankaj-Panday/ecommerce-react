@@ -74,7 +74,7 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className={css.navlink} onClick={() => setMenuOpen(false)}>
-								<Link to="#">
+								<Link to="/wishlist">
 									<FaHeart className={css.icon} />
 								</Link>
 							</li>

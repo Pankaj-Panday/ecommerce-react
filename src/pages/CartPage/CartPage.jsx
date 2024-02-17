@@ -10,8 +10,13 @@ import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem.jsx";
 
 const CartPage = () => {
-	const { cartItems, totalPrice, shippingCharge, clearAllItemsFromCart } =
-		useCartContext();
+	const {
+		cartItems,
+		totalItems,
+		totalPrice,
+		shippingCharge,
+		clearAllItemsFromCart,
+	} = useCartContext();
 
 	const cartEmpty = cartItems.length === 0;
 
@@ -67,9 +72,11 @@ const CartPage = () => {
 									</p>
 								</div>
 							</div>
-							<Link to="/checkout" className={css.checkout}>
-								Check out
-							</Link>
+							{totalItems > 0 ? (
+								<Link to="/checkout" className={css.checkout}>
+									Check out
+								</Link>
+							) : null}
 						</section>
 					}
 				</section>

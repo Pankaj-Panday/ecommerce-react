@@ -1,9 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import css from "./productcard.module.css";
-
-// icon
-import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import FormatPrice from "../../helper/FormatPrice";
 
 const ProductCard = ({ product }) => {
@@ -17,7 +14,6 @@ const ProductCard = ({ product }) => {
 		isNew,
 		isWishlisted,
 		thumbnail,
-		stock,
 	} = product;
 	const effectivePrice = discountPercent
 		? Math.round((price * (100 - discountPercent)) / 100)
@@ -37,9 +33,6 @@ const ProductCard = ({ product }) => {
 					  )
 					: null}
 				{isNew && <p className={`${css.label} ${css.new}`}>New</p>}
-				<button className={css.wishlistIcon}>
-					{isWishlisted ? <IoMdHeart /> : <IoMdHeartEmpty />}
-				</button>
 			</div>
 			<div className={css.productDetails}>
 				<h4 className={css.name}>

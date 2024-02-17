@@ -30,7 +30,6 @@ const cartReducer = (data, action) => {
 				const newCartItems = data.cartItems.map((item) => {
 					if (item.id === newItem.id) {
 						let newQuantity = item.quantity + newItem.quantity;
-						console.log(newQuantity);
 						return {
 							...item,
 							quantity: newQuantity > stock ? stock : newQuantity,

@@ -36,27 +36,6 @@
 	margin-right: 0.5rem;
 }
 
-.wishlistIcon {
-	border: none;
-	background-color: #fff;
-	border-radius: 50%;
-	cursor: pointer;
-	height: 2rem;
-	width: 2rem;
-	display: grid;
-	place-items: center;
-	position: absolute;
-	bottom: 0.5rem;
-	right: 0.5rem;
-}
-
-.wishlistIcon svg {
-	height: 80%;
-	width: 80%;
-	fill: #ff002b;
-	margin-bottom: -3px;
-}
-
 .productDetails {
 	background-color: #f4f5f7;
 	padding: 1rem 1rem 1.875rem;

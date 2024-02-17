@@ -16,6 +16,7 @@ import MainLayout from "./layout/MainLayout.jsx";
 import Product from "./pages/Product/Product.jsx";
 import CartPage from "./pages/CartPage/CartPage.jsx";
 import Checkout from "./pages/Checkout/Checkout.jsx";
+import Wishlist from "./pages/Wishlist/Wishlist.jsx";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
 				<Route path="about" element={<About />} />
 				<Route path="contact" element={<Contact />} />
 				<Route path="checkout" element={<Checkout />} />
+				<Route path="wishlist" element={<Wishlist />} />
 			</Route>
 		</Route>
 	)

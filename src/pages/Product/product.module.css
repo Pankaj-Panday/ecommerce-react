@@ -180,10 +180,15 @@
 	right: 0;
 }
 
+.actionButtons .wishlistBtn {
+	min-width: 10.5rem;
+}
+
 .actionButtons .isWishlisted {
 	background-color: var(--clr-brand-primary);
 	color: #fff;
 	border-color: var(--clr-brand-primary);
+	min-width: 10.5rem;
 }
 
 .actionButtons button:disabled {

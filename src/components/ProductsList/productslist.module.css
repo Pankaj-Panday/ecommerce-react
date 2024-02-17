@@ -41,27 +41,6 @@
 	border-radius: 3px;
 }
 
-.wishlistIcon {
-	border: none;
-	background-color: #fff;
-	border-radius: 50%;
-	cursor: pointer;
-	height: 1.5rem;
-	width: 1.5rem;
-	display: grid;
-	place-items: center;
-	position: absolute;
-	bottom: 0.7rem;
-	right: 0.7rem;
-}
-
-.wishlistIcon svg {
-	height: 80%;
-	width: 80%;
-	fill: #ff002b;
-	margin-bottom: -3px;
-}
-
 .productName a {
 	line-height: 1.2;
 	font-size: 1.5rem;

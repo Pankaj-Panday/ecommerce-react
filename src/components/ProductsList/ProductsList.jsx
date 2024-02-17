@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import css from "./productslist.module.css";
 import FormatPrice from "../../helper/FormatPrice.jsx";
 
-import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
-
 const ProductsList = ({ products }) => {
 	const navigate = useNavigate();
 	return (
@@ -17,9 +15,6 @@ const ProductsList = ({ products }) => {
 					<li key={index} className={css.product}>
 						<figure className={css.productImg}>
 							<img src={product.thumbnail} alt={product.name} />
-							<button className={css.wishlistIcon}>
-								{product.isWishlisted ? <IoMdHeart /> : <IoMdHeartEmpty />}
-							</button>
 						</figure>
 						<div>
 							<div>
