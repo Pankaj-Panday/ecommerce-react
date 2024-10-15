@@ -27,6 +27,7 @@ export const FilterContextProvider = ({ children }) => {
 
 	function sortProducts(event) {
 		dispatch({ type: "SET_SORTBY_VALUE", value: event.target.value });
+		dispatch({ type: "SORT_PRODUCTS" });
 	}
 
 	function updateItemCount(event) {
@@ -36,10 +37,14 @@ export const FilterContextProvider = ({ children }) => {
 	function updateFilterValue(event) {
 		const { name, value } = event.target;
 		dispatch({ type: "SET_FILTER_VALUE", payload: { name, value } });
+		dispatch({ type: "SHOW_FILTERED_PRODUCTS" });
+		dispatch({ type: "SORT_PRODUCTS" });
 	}
 
 	function clearFilters() {
 		dispatch({ type: "CLEAR_FILTERS" });
+		dispatch({ type: "SHOW_FILTERED_PRODUCTS" });
+		dispatch({ type: "SORT_PRODUCTS" });
 	}
 
 	useEffect(() => {
@@ -49,10 +54,10 @@ export const FilterContextProvider = ({ children }) => {
 		});
 	}, [products]);
 
-	useEffect(() => {
-		dispatch({ type: "SHOW_FILTERED_PRODUCTS" });
-		dispatch({ type: "SORT_PRODUCTS" });
-	}, [data.sortByValue, data.itemCount, products, data.filters]);
+	// useEffect(() => {
+	// 	dispatch({ type: "SHOW_FILTERED_PRODUCTS" });
+	// 	dispatch({ type: "SORT_PRODUCTS" });
+	// }, [data.sortByValue, data.itemCount, products, data.filters]);
 
 	return (
 		<FilterContext.Provider
